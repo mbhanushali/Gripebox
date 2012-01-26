@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, button,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  color: #333;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 12px;
+  font-family: Arial; 
+  line-height:1;
+}
+
+:focus {
+  outline: 0;
+}
+a{
+  font-size:12px;
+  color:#349f00;
+  text-decoration:none;
+}
+a:hover{
+  text-decoration:underline;
+}
+ol, ul, li {
+  list-style: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+  font-weight: normal; border:1px solid #ccc;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+blockquote, q {
+  quotes: "" "";
+}
+.clear {
+  clear:both;
+  line-height: 0;
+}
+.dn {
+  display: none;
+}
+.fl {
+  float:left;
+}
+.fr {
+  float:right;
+}
+.span_val {
+  position:absolute;
+  clear: both;
+  display: block;
+  float: none;
+}
+h2 {font-size:32px; color:#b2b2b2; padding:0 0 10px 0; font-family:Arial Black;}
+
+input {font-family:Arial;} 
+/*Site style*/
+html, body {margin: 0;height: 100%;}
+#wrapper { height: auto !important; height: 100%; min-height: 100% ; min-width: 995px; background: #fff}
+#header {height: 77px; background: #d21d21 url(/assets/header-background.png) repeat-x; margin:0 0 5px 0; }
+#header .main {position:relative;}
+#header .logo {width:73px; height:77px; margin:0 0 0 52px; background: url(/assets/logo.png) no-repeat; float:left;}
+#header .logo a {width:73px; height:77px; display:block;}
+#header .logo a {width:73px; height:77px; display:block;}
+#container {margin:0 0 20px 0;}
+#container .main {
+  /*background: url(/assets/content-background.png) no-repeat left bottom; */
+  /*padding-bottom: 200px;*/
+}
+.main {width: 995px; margin: 0 auto;}
+#spacer {height: 100px;}
+#footer {height: 80px; margin-top: -100px; background: #e9e9e9  url(/assets/footer-background.png) repeat-x; min-width:995px; padding:20px 0 0 0;} 
+#footer .copyright {font-size: 10px; color:#808080; margin:22px 0 0 0; display:inline-block; float:left;}
+#footer .footer-menu {margin:19px 0 0 90px; float:left;} 
+#footer .footer-menu li {display:inline; padding:0 1px;}
+#footer .footer-menu a { color:#808080; font-size:14px;  } 
+
+#left {width:180px; float:left; }
+#center {width:585px; float:left; margin:0 0 0 15px;}
+#right {width:200px; float:right; }
+
+.widget-griper-result {position:absolute; height:135px; min-width:145px; background: url(/assets/ico/griper-header.png) no-repeat right top; top:-3px; right:168px;}
+.widget-griper-result .result-griper-header {height:20px; border:2px solid #ccc; color:#606060; position:relative; padding:0 11px; line-height:20px;  right:120px; top:95px; display:inline-block; float:right;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.widget-griper-result .result-griper-header span {background: url(/assets/ico/bg-result-griper-header.png); display:block; width:11px; height:10px; position:absolute; top:-5px; right:-8px;}
+
+.widget-social-sign-in {float:right;  position:relative; top:18px; right:35px;}
+.widget-social-sign-in a {color:#fff; font-size:12px; text-decoration:underline; padding:0 7px 0 0;  margin: 34px 0 0; display:inline-block; float:left;}
+.widget-social-sign-in a.username-link { font-weight: 700 !important; }
+
+.btn-social-sign {float:right; text-align:center;}
+.btn-social-sign span {color:#fff;padding:0 0 0 12px;}
+
+.btn-social-sign li { width:35px; height:37px; float:left; margin:5px 0 0 8px;}
+.btn-social-sign li a {text-indent:-9999px; display:block; width:35px; height:37px; padding:0px; float:none; margin:0; }
+.btn-social-sign li.fb {background: url(/assets/ico/ico-social.png) no-repeat; }
+.btn-social-sign li.tw {background: url(/assets/ico/ico-social.png) no-repeat -42px 0; }
+
+.checkboxDiv { }
+.checkbox {margin:0;padding:0;opacity:0; filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0); width:17px; height:16px; cursor:pointer;}
+.checkboxOff {background:url(/assets/ico/checkbox.png) no-repeat 0 -16px;}
+.checkboxOn  {background:url(/assets/ico/checkbox.png) no-repeat 0 0;}
+
+
+.filter .box.gray .topic {
+  padding:6px 0 5px 0; background: url(/assets/widget/line-h.png) repeat-x left bottom;
+}
+.filter .box.gray .topic h3 {
+  font-size: 13px; font-weight: bold; color: #4d4d4d;  text-shadow:1px 1px 0 #fff; padding: 0 0 0 5px;
+  float: left;
+}
+.filter .box.gray {
+  border-bottom:1px solid #aaa; min-height:50px; margin: 0 0 10px 0; position:relative;
+}
+
+.filter .box.gray .bl-clear {
+  background: #a6a6a6; cursor: pointer; float: right;
+  font-size: 10px; color: #fff; padding: 0 6px; margin: 0px 0 0 0; line-height:13px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.filter .box.gray .bl-clear:active {
+  -webkit-box-shadow: inset 0px 4px 3px -4px #424242;
+  -moz-box-shadow: inset 0px 4px 3px -4px #424242;
+  box-shadow: inset 0px 4px 3px -4px #424242;
+}
+
+.topic-search {
+  width: 180px;
+  height:40px;
+  background: url('/assets/topic-search-background.png') no-repeat; margin: 10px 0 0 0;
+}
+
+.widget-ad-space { margin: 0 0 24px 0; }
+
+textarea { resize: none; }
+
+#panel-for-facebook-posting { line-height: 15px; }

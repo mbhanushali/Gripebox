@@ -1,0 +1,18 @@
+.widget-poll-box {}
+.widget-poll-box .box.gray {border-bottom:1px solid #aaa; }
+.widget-poll-box .topic {padding:4px 0 11px 0; background: url(/assets/widget/line-h.png) repeat-x left bottom; }
+.widget-poll-box .topic h3 {font-size:14px; font-family:Arial Black; color:#666; }
+
+.widget-poll-box .poll-question {width:145px; margin:8px auto 13px auto; font-weight:bold; color:#666;}
+
+.widget-poll-box form.poll-ans {padding:0 3px 6px;}
+.widget-poll-box form.poll-ans p {padding:2px 0 10px 0;}
+.widget-poll-box form.poll-ans p.first label {color: #C20000; font-weight: bold} 
+.widget-poll-box form.poll-ans p label {color: #4d4d4d; cursor:pointer; padding:0 0 0 8px;} 
+.widget-poll-box form.poll-ans .checkboxDiv {width:17px; height:17px; float:left; position:relative; top:-3px;}
+.widget-poll-box form.poll-ans .checkboxOff {background:url(/assets/ico/poll-radio.png) no-repeat 0 0;}
+.widget-poll-box form.poll-ans .checkboxOn  {background:url(/assets/ico/poll-radio.png) no-repeat 0 -17px;}
+
+.widget-poll-box form.poll-ans span.result {float:right;  color:#4d4d4d;}
+
+

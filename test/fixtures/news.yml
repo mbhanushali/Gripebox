@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+1:
+  title: News 1
+  overview: 'Google AdWords lets you promote your business alongside relevant Google search results and on our advertising network. Reach people looking for information about your products and services online. Easily control your budget and target prospects geographically.'
+  embed: '123'
+
+2:
+  title: News 2
+  overview: 'Google AdWords lets you promote your business alongside relevant Google search results and on our advertising network. Reach people looking for information about your products and services online. Easily control your budget and target prospects geographically.'
+  embed: '123'
+3:
+  title: News 3
+  overview: 'Google AdWords lets you promote your business alongside relevant Google search results and on our advertising network. Reach people looking for information about your products and services online. Easily control your budget and target prospects geographically.'
+  embed: '123'
+4:
+  title: News 4
+  overview: 'Google AdWords lets you promote your business alongside relevant Google search results and on our advertising network. Reach people looking for information about your products and services online. Easily control your budget and target prospects geographically.'
+  embed: '123'
+5:
+  title: News 5
+  overview: 'Google AdWords lets you promote your business alongside relevant Google search results and on our advertising network. Reach people looking for information about your products and services online. Easily control your budget and target prospects geographically.'
+  embed: '123'

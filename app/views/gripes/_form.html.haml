@@ -1,0 +1,37 @@
+= form_for(@gripe , :html => { :autocomplete => "off"} )do |f|
+  - if @gripe.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@gripe.errors.count, "error")
+        prohibited this gripe from being saved:
+      %ul
+        - @gripe.errors.full_messages.each do |msg|
+          %li= msg
+  %p
+    = f.label :title
+    = f.text_field :title, :class => "tips", :default => "e.g. Acme Wireless ripped me off!"
+  %p
+    = f.label "Gripe"
+    = f.text_area :overview, :rows => "5", :class => "tips", :default => "don’t hold back!"
+  %p
+    = f.label "Tags"
+    = f.text_field :tag_list, :class => "tips", :default => "add descriptive words to help others find your gripe."
+  .upload-media
+    %span
+      upload media
+    .input-upload-media
+  .submitOn    
+  %input{ :type => "hidden", :class => "ResultArray", :name => "arrayFiles"}
+  = f.submit "", :class=>"btn-gripe"
+  .clear
+  %textarea.gripe_master_list_error
+
+
+= form_for :file, :url => '/uploader', :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form| 
+  = form.file_field :image, :class => "file-upload-source", :status => "img"
+  = form.hidden_field :user_id, :value => current_user.id
+  = form.file_field :source, :class => "file-upload-source", :status => "video"
+
+  = form.submit  :class => "file-upload-submit"
+  %iframe{ :id => "file-upload-iframe", :name => "file-upload-iframe", :src => "about:blank", :frameborder => "0", :border => "0", :width => "500px", :heigth => "300px", :onload => "parseIframe();"}  
+.gripe_master_list

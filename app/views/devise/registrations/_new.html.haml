@@ -1,0 +1,15 @@
+= form_for :user, :url => user_registration_path, :html => { :autocomplete => "off", :class => "sign-form"} do |f|
+  %p
+    = f.label :email
+    = f.email_field :email, :class => "tips", :default => ""
+  %p
+    = f.label :username
+    = f.text_field :username, :class => "tips", :default => ""
+  %p  
+    = f.label :password
+    %span.letters (6 letters or more)
+    = f.password_field :password, :class => "tips", :default => ""
+  .clear
+  %p
+    = f.submit "Sign in", :class=>"btn small red", :value=>"sign up"
+  %p

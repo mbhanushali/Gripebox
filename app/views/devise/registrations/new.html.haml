@@ -1,0 +1,16 @@
+%h2 Sign up
+= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :autocomplete => "off", :class => "sign-form"}) do |f|
+  %p
+    = f.label :email
+    = f.email_field :email, :class => "tips", :default => "Your email"
+  %p
+    = f.label :username
+    = f.text_field :username, :class => "tips", :default => "Your username"    
+  %p  
+    = f.label :password 
+    %span.letters (6 letters or more)
+    = f.password_field :password, :class => "tips", :default => "Your password"
+  .clear
+  %p
+    = f.submit "Sign in", :class=>"btn small red", :value=>"sign up"
+  %p 

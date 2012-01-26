@@ -1,0 +1,35 @@
+.notifications_list h1{font-size:36px;color:#b2b2b2;padding-bottom:6px;font-family: Arial Black;}
+.notifications_list h1 .username{font-size:36px;color:black;font-family: Arial Black;}
+.notifications_list .notifications{width:100%;}
+.notifications_list .notifications li{height:20px;background-color:#e6e6e6;margin:0 0 5px 0;
+border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+font-size:11px;clear:both;}
+
+.notifications_list .notifications li div{display:inline-block;}
+.notifications_list .notifications li .type{width:90px;border-right:1px solid #d4d4d4;float:left;}
+.notifications_list .notifications li .type.gripes{background: url('../assets/ico/notifications-griper.png') no-repeat 70px 0;}
+.notifications_list .notifications li .type .typename{padding:4px 6px;color:white;
+border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+background-color: #68bede;}
+.notifications_list .notifications li .text {border-left:1px solid #e9e9e9;border-right:1px solid #d4d4d4;width:412px;padding:4px;float:left;font-weight:bold}
+.notifications_list .notifications li .text a{color:#67b2ce;cursor:pointer; font-weight:bold}
+.notifications_list .notifications li .time{border-left:1px solid #e9e9e9;text-align:center;padding:4px;width:60px;float:left;}
+.notifications_list .notifications li.read .type.gripes{background-image: url('../assets/ico/notifications-griper-read.png');}
+.notifications_list .notifications li.read .text,.notifications_list .notifications li.read .time{color:#9a9a9a;}
+.notifications_list .notifications li.read .text a{color:#68b5d1;}
+.notifications_list .notifications li.read .typename {
+  background: #b3b3b3;
+}
+.notifications_list .notifications li.read .text a, .notifications_list .notifications li.read .text{
+  font-weight: normal;
+}
+
+.notifications_list button{font-size:16px;color:white;background-color:#999999;border:0;
+border-radius:5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+padding:4px 18px;margin:160px 0 0 36%;}

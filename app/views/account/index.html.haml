@@ -1,0 +1,217 @@
+#account-settings{ :account => "3132"}
+  %h3 
+    %strong>= current_user.username
+    &#39;s Account  
+  .clear 
+  .settings-user
+    .block-picture
+      .img-box
+        - if current_user.avatar.present?
+          = image_tag(current_user.avatar(:thumb), :alt => current_user.username)
+        - else
+          = image_tag("/assets/img/i1.png", :alt => current_user.username)
+      .edit-img-box
+        %form{}
+          %input{ :type => "button", :value => "edit picture"}
+          %span jpg, png or gif only please.
+        = form_for :user, :url => '/account/avatar/upload?id=' + current_user.id.to_s, :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form| 
+          = form.hidden_field :authenticity_token, :name => 'authenticity_token', :value => form_authenticity_token
+          = form.file_field :avatar, :class => "file-upload-source", :status => "img"
+          = form.submit  :class => "file-upload-submit"
+          %iframe{ :id => "file-upload-iframe", :name => "file-upload-iframe", :src => "about:blank", :frameborder => "0", :border => "0", :width => "500px", :heigth => "300px", :onload => "parseIframeAvatar();"}      
+    .clear
+    .block-user-info
+      %form{} 
+        %div
+          %sup *
+          %label
+            name     
+          %input{ :type => "text", :value => current_user.username, :id => "user-name", :default => "your name", :class => "tips" }
+        %div
+          %sup *
+          %label
+            email     
+          %input{ :type => "text", :value => current_user.email, :id => "user-email", :default => "your email", :class => "tips" }
+        %div.birthday
+          %sup *
+          %label
+            birthday    
+          %div
+            %span 
+              m
+              %input{ :type => "text", :value => truncate(Date::MONTHNAMES[current_user.birthday.strftime('%m').to_i].to_s, :length => 3, :omission => ''), :class => "m", :id => "birthday-m", :maxlength => "0"}    
+              %ul
+                %li Jan
+                %li Feb
+                %li Mar
+                %li Apr
+                %li May
+                %li Jun
+                %li Jul
+                %li Aug
+                %li Sep
+                %li Oct
+                %li Nov
+                %li Dec
+            %span 
+              d
+              %input{ :type => "text", :value => current_user.birthday.strftime('%d'), :class => "d", :id => "birthday-d", :maxlength => "2", :onkeypress => "return filter_input(event)" } 
+            %span 
+              y
+              %input{ :type => "text", :value => current_user.birthday.strftime('%Y'), :class => "y", :id => "birthday-y", :maxlength => "4", :onkeypress => "return filter_input(event)"} 
+            .clear    
+        
+        %div.gender
+          %sup *
+          %label
+            gender
+          %p
+            - if current_user.gender == 'm'
+              .checkboxDiv.checkboxOn
+                %input{ :type => "radio", :value => "m", :name => "gender", :class => "checkbox", :id => "gender-m"}
+              .checkboxDiv.checkboxOff
+                %input{ :type => "radio", :value => "f", :name => "gender", :class => "checkbox", :id => "gender-f"}  
+            - else     
+              .checkboxDiv.checkboxOff
+                %input{ :type => "radio", :value => "m", :name => "gender", :class => "checkbox", :id => "gender-m"}
+              .checkboxDiv.checkboxOn
+                %input{ :type => "radio", :value => "f", :name => "gender", :class => "checkbox", :id => "gender-f"}
+        %div
+          %label
+            occupation:     
+          %input{ :type => "text", :value => current_user.occupation, :id => "user-occupation", :default => "your occupation", :class => "tips" }
+        %div
+          %label
+            location:     
+          %input{ :type => "text", :value => current_user.location, :id => "user-location", :default => "your location", :class => "tips", :placeholder => ""}
+          
+        %div
+          .status-barSett
+            = image_tag("/assets/loading.gif", :class => "loadind")
+            = image_tag("/assets/ico/ico-ok.png", :class => "good")
+            = image_tag("/assets/ico/ico-no.png", :class => "no")
+          %input{ :type => "submit", :value => "save settings", :class => "btn-save-settings"} 
+        .clear
+      %script{:src => "http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places", :type => "text/javascript"}
+      #map_canvas
+      %div.password
+        %form{ :autocomplete => "off" }
+          %div
+            %label
+              current password:     
+            %input{ :type => "password", :value => "", :id => "current-password", :default => "current password", :class => "tips" }
+          %div
+            %label
+              new password:    
+            %input{ :type => "password", :value => "", :id => "new-password", :default => "new password", :class => "tips" }
+          %div
+            .status-bar
+              = image_tag("/assets/loading.gif", :class => "loadind")
+              = image_tag("/assets/ico/ico-ok.png", :class => "good")
+              = image_tag("/assets/ico/ico-no.png", :class => "no")
+            %input{ :type => "submit", :value => "change password", :class => "btn-change-password"} 
+            /%a{ :href => new_user_password_path} forgot my password!
+        .clear           
+  .settings-social
+    %a{ :href => "/auth/facebook" }
+      .topic.fb facebook
+    - if current_user.authentications.facebook.present?
+      %form{ :class => "facebook-form" }
+        %div
+          %strong
+          - if current_user.facebook_activity.present?
+            - if current_user.authentications.facebook.name.present?
+              Facebook (
+              %a{:href => @graph.get_object("me")["link"] }>= current_user.authentications.facebook.name
+              )
+            - else            
+              Facebook (
+              %a{:href => @graph.get_object("me")["link"] }>= current_user.username
+              )
+          - if current_user.facebook_activity.present?
+            %span
+              Publish a story to my news feed when I:  
+          - if current_user.facebook_activity.present?  
+            %p
+              %input{ :type => "checkbox", :value => "create_a_gripe", :name => "facebook", :id => "fb-create-a-gripe", :class => "checkbox", :checked => "checked" ? current_user.authentications.facebook.create_a_gripe : false} 
+              %label{ :for => "fb-create-a-gripe" } Create a Gripe
+            %p
+              %input{ :type => "checkbox", :value => "amp_up", :name => "facebook", :id => "fb-amp-up", :class => "checkbox", :checked => "checked" ? current_user.authentications.facebook.amp_up : false } 
+              %label{ :for => "fb-amp-up" }  Amp up another users
+          - else
+            #panel-for-facebook-posting
+              = link_to('Please allow Gripebox to broadcast my activities to Facebook','https://www.facebook.com/dialog/oauth?client_id=292822210738107&redirect_uri=http://dev.gripebox.com/account&scope=email,read_stream,publish_stream,offline_access')
+              - if params['code']
+                %input{ :type => "hidden", :value => params['code'], :id => "user_code" }
+                %script{ :type => "text/javascript", :src => "/assets/facebook.js" }
+      %br/      
+      = link_to "Disconnect the account", "/authentications/" + current_user.authentication.facebook.id.to_s, :method => :delete          
+    - else
+      = link_to "Connect now", "/auth/facebook"
+    %a{ :href => "/auth/twitter" }
+      .topic.tw Twitter 
+    - if current_user.authentications.where('provider = ?','twitter').present?
+      - unless Twitter.user(current_user.authentication.twitter.uid.to_i).protected?
+        %form{ :class => "twitter-form" }
+          %div
+            %strong
+              Twitter  (
+              %a{:href => "https://twitter.com/#!/" + current_user.authentication.twitter.name.to_s, :target => "_blank" }>= current_user.authentication.twitter.name
+              )
+            %span
+              Publish a story to my news feed when I:  
+            %p
+              %input{ :type => "checkbox", :value => "create_a_gripe", :name => "twitter", :id => "tw-create-a-gripe", :class => "checkbox", :checked => "checked" ? current_user.authentications.twitter.amp_up : false} 
+              %label{ :for => "tw-create-a-gripe" } Create a Gripe
+            %p
+              %input{ :type => "checkbox", :value => "amp_up", :name => "twitter", :id => "tw-amp-up", :class => "checkbox", :checked => "checked" ? current_user.authentications.twitter.amp_up : false} 
+              %label{ :for => "tw-amp-up" }  Amp up another users    
+      - else
+        %div
+          %strong
+            This's twitter account protected!
+      %br/      
+      = link_to "Disconnect the account", "/authentications/" + current_user.authentication.twitter.id.to_s, :method => :delete
+    - else
+      = link_to "Connect now", "/auth/twitter"
+    %form
+      %div.email-me
+        %h4 Email me:
+        - if current_user.email_me.present?
+          %p
+            - if current_user.email_me.last.update_comments
+              .checkboxDiv.checkboxOn
+                %input{ :type => "checkbox", :value => "update_comments", :name => "email-me", :id => "up-gripe", :class => "checkbox", :checked => "checked"} 
+            - else
+              .checkboxDiv.checkboxOff
+                %input{ :type => "checkbox", :value => "update_comments", :name => "email-me", :id => "up-gripe", :class => "checkbox"} 
+            %label{ :for => "up-gripe" } updates to my gripes
+          %p
+            - if current_user.email_me.last.update_subscriptions
+              .checkboxDiv.checkboxOn
+                %input{ :type => "checkbox", :value => "update_subscriptions", :name => "email-me", :id => "up-subscriptions", :class => "checkbox", :checked => "checked"} 
+            - else    
+              .checkboxDiv.checkboxOff
+                %input{ :type => "checkbox", :value => "update_subscriptions", :name => "email-me", :id => "up-subscriptions", :class => "checkbox"}           
+            %label{ :for => "up-subscriptions" } updates to my subscriptions
+          %p
+            - if current_user.email_me.last.get_top_gripes_a_week
+              .checkboxDiv.checkboxOn
+                %input{ :type => "checkbox", :value => "get_top_gripes_a_week", :name => "email-me", :id => "top-gripe", :class => "checkbox", :checked => "checked"} 
+            - else
+              .checkboxDiv.checkboxOff
+                %input{ :type => "checkbox", :value => "get_top_gripes_a_week", :name => "email-me", :id => "top-gripe", :class => "checkbox"} 
+            %label{ :for => "top-gripe" } 3 top gripes a week
+        - else
+          %p
+            %input{ :type => "checkbox", :value => "update_comments", :name => "email-me", :id => "up-gripe", :class => "checkbox"} 
+            %label{ :for => "up-gripe" } updates to my gripes
+          %p
+            %input{ :type => "checkbox", :value => "update_subscriptions", :name => "email-me", :id => "up-subscriptions", :class => "checkbox"}           
+            %label{ :for => "up-subscriptions" } updates to my subscriptions
+          %p
+            %input{ :type => "checkbox", :value => "get_top_gripes_a_week", :name => "email-me", :id => "top-gripe", :class => "checkbox"} 
+            %label{ :for => "top-gripe" } 3 top gripes a week            
+  .clear    
+  %button.delete-account delete account      
+   

@@ -1,0 +1,44 @@
+.widget-top10-griped {}
+.widget-top10-griped .box.gray {border-bottom:1px solid #aaa; overflow: hidden; margin: 0 0 35px 0;}
+.widget-top10-griped .tabs-top-griped {width:186px; height:25px; overflow: hidden; margin: 0 0 0 -10px;}
+.widget-top10-griped .top-week,
+.widget-top10-griped .top-month,
+.widget-top10-griped .top-year {padding:0 10px 0 11px; font-size:14px; font-family:Arial Black; line-height:25px; height:25px; float:left; color:#fff; background:#c0c0c0; cursor:pointer;
+box-shadow: 1px 0 5px -1px #222222, -3px 0 4px -7px #222222;
+-moz-box-shadow: 1px 0 5px -1px #222222, -3px 0 4px -7px #222222;
+-webkit-box-shadow: 1px 0 5px -1px #222222, -3px 0 4px -7px #222222;
+}
+.widget-top10-griped .tabs-top-griped .active {background:#e9e9e9; color:#666;
+
+}
+
+.widget-top10-griped .topic {padding:0 0 6px 0;  background: url(/assets/widget/line-h.png) repeat-x left bottom; }
+.widget-top10-griped .topic h3 {font-size:18px; font-family:Arial Black; color:#fff; text-shadow: 0px 0px 3px #000; padding:3px 0 1px 0;}
+.widget-top10-griped .topic  strong {font-size:18px; font-weight:bold; color:#4d4d4d;}
+
+
+.widget-top10-griped ul.list-top10-griped { 
+  display: none;
+}
+
+.widget-top10-griped ul.list-top10-griped li.first a {color:#c20000; font-weight:bold;}
+.widget-top10-griped ul.list-top10-griped li.nobg {background:none;}
+.widget-top10-griped ul.list-top10-griped li {display:block;  padding:6px 0 6px 0; background: url(/assets/widget/line-top10.png) repeat-x left bottom; }
+.widget-top10-griped ul.list-top10-griped li span {width:14px; height:14px; display: inline-block; font-size:11px; font-weight:bold; color: #fff; line-height:15px;
+ text-align: center;
+  background-color: #d31c22;
+  
+  -webkit-box-shadow: inset 1px 1px 2px #500003;
+  -moz-box-shadow: inset 1px 1px 2px #500003;
+  box-shadow: inset 1px 1px 2px #500003;
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+
+}
+.widget-top10-griped ul.list-top10-griped li a {color:#4d4d4d; font-size:14px; display:inline-block; padding: 0 0 0 8px; position: relative; top:1px;
+width: 144px;
+overflow: hidden;
+height: 15px;
+}

@@ -1,0 +1,10 @@
+.widget-user-panel
+  %ul
+    %li{ :class => "notifications " + (params[:controller] == 'notifications' ? "active" : nil).to_s }
+      = link_to "notifications", notifications_path
+    %li{ :class => "my_gripes " + (params[:action] == 'mygripes' ? "active" : nil).to_s }
+      %a{ :href => mygripes_path } my gripes
+    %li{ :class => "subscriptions " + (params[:controller] == 'subscriptions' ? "active" : nil).to_s }
+      = link_to "subscriptions", subscriptions_path
+    %li{ :class => "account " + (params[:controller] == 'account' ? "active" : nil).to_s }
+      = link_to "account", account_path

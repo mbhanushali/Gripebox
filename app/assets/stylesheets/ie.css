@@ -1,0 +1,24 @@
+.box-gripe,
+.box.gray,
+.list-gripes .btn-gripe-update,
+.list-gripes .gripe-content,
+.list-gripes .box-comments span,
+.gripe-list-comment,
+.top-week,.top-month,.top-year,
+.result-griper-header,
+.widget-gripe-pics,
+.widget-gripe-video
+{
+  zoom:1;
+  position:relative;
+  behavior: url(/assets/PIE.htc);
+}
+.btn-gripe-update{
+  position:absolute!important;
+}
+img {
+  border:none
+}
+.box.green{
+  behavior: url(/assets/PIE.htc);
+}

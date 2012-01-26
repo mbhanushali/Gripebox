@@ -1,0 +1,5 @@
+#footer .search-form { width:438px; margin:0 0 0 256px; display:block; position:relative; }
+#header .search-form { width:438px; margin:22px 0  0 132px; float:left; position:relative;}
+.search-form .search-text { width:318px; height:40px; background:url("/assets/form-search-text.png") no-repeat; padding:0 11px; font-size:21px; float:left; border:0;}
+.search-form .search-button{ width:99px; height:40px; background:url("/assets/form-search-button.png") no-repeat; cursor:pointer; margin:0 0 0 -6px; float:right; border:0;}
+.search-form .span_val {font-size:21px; left:0; padding:9px 0 0 12px;}

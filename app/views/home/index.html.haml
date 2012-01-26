@@ -1,0 +1,9 @@
+%h2 News
+
+/= render :partial => "application/user_link"  
+= render :partial => "widget_viewer_news"  
+= render :partial => "gripes", :locals => { :gripes => @gripes, :title => "Top Gripes:" }
+
+/ %div{ :style => "display:none;"}
+/   #inline{ :style => "width:400px;height:400px;" }
+/     #mediaplayer3

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tag: MyString
+  count: 1
+  period: MyString
+  published: false
+
+two:
+  tag: MyString
+  count: 1
+  period: MyString
+  published: false

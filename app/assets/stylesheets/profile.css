@@ -1,0 +1,201 @@
+#account-settings {margin:0 0 0 15px; position:relative}
+#account-settings h3 {font-size:36px; font-family:Arial Black; color:#b3b3b3; text-align:right; display:inline-block; margin: 0 0 20px 0;}
+#account-settings h3 strong {font-size:36px; font-family:Arial Black; color:#323333; text-align:left; float:left;}
+#account-settings .span_val {color:#B2B2B2; font-size:18px; padding:4px 0 0 17px;}
+#account-settings .settings-user {width:235px; float:left;}
+#account-settings .img-box {float:left; width:65px; height:65px;}
+#account-settings .img-box img {width:65px; height:65px; margin:0 0 0 5px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+#account-settings .edit-img-box {float:right; margin: 0 0 0 15px;} 
+#account-settings .edit-img-box span {color:#b2b2b2; font-size:12px; display:block; padding:3px 0 0 1px;}
+
+#account-settings .block-user-info {}
+#account-settings .block-user-info div {padding:0 0 0 0;}
+#account-settings .block-user-info div sup {color:#ff0000; font-size:16px; font-family:Arial Black; position:relative; top:7px; left:3px; display:inline; margin-left:-11px;} 
+#account-settings .block-user-info div label {position:relative; color:#4c4c4c; font-size:14px; font-family:Arial Black; display:inline-block; padding:0 0 4px 0;}
+
+#account-settings input[type="text"],
+#account-settings input[type="password"] {background:#e6e6e6; padding:0 13px;  height:28px; line-height:28px; border:none; color:#4c4c4c;
+ font-size:18px; width:209px;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+#account-settings .block-user-info #user-occupation,
+#account-settings .block-user-info #user-location, 
+#account-settings .block-user-info #current-password,
+#account-settings .block-user-info #new-password
+ { margin: 0 0 8px 0}
+
+
+#account-settings .settings-user input[type="submit"],
+#account-settings .settings-user input[type="button"],
+#account-settings button,
+#account-settings .settings-user input[type="radio"]  {background:#68bede; padding:0 30px;  height:28px; line-height:28px; border:none; color:#fefefe;
+ font-size:12px; cursor:pointer; font-family:Arial Black; 
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+}
+
+.birthday ul {
+  position: absolute; z-index:3; background: #E6E6E6; margin: -5px 0 0 19px; padding: 6px 15px; display: none;
+  -webkit-border-radius:0 0 6px 6px;
+-moz-border-radius:0 0 6px 6px;
+border-radius:0 0 6px 6px;
+}
+.birthday ul li {
+  padding: 0 0 7px 0; cursor: pointer;
+}
+.birthday ul li:hover {
+  text-decoration:underline;
+}
+#account-settings .settings-user input[type="submit"]:active,
+#account-settings .settings-user input[type="button"]:active,
+#account-settings .settings-user input[type="radio"]:active,
+#account-settings button:active{
+-webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+-moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+#account-settings .block-user-info div.birthday div {margin:0 0 0 -15px;}
+#account-settings .block-user-info div.birthday span {display:block; color:#999; font-size:14px; font-family:Arial Black; float:left; margin:0 0 0 16px;}
+#account-settings .block-user-info div.birthday span input {text-align:center; padding:0 8px; color:#b2b2b2;}
+#account-settings .block-user-info div.birthday span input.m {width:37px;}
+#account-settings .block-user-info div.birthday span input.d {width:25px;}
+#account-settings .block-user-info div.birthday span input.y {width:45px;}
+
+#account-settings .block-user-info .btn-save-settings,
+#account-settings .block-user-info .btn-change-password {float:right;}
+#account-settings .block-user-info .btn-change-password {padding:0 16px!important; margin:0 0 5px 0;}
+
+#account-settings .block-user-info .password {margin:20px 0 0 0;}
+#account-settings .block-user-info .password a {float:right; color:#00adee;}
+
+
+#account-settings .settings-social {width:265px; float:left; margin:0 0 0 60px;}
+
+#account-settings .settings-social .topic {text-indent:-9999px; background: url(/assets/bg-social-h.png) repeat-x left 0; height:28px; width:118px; margin:0 0 12px 0;}
+#account-settings .settings-social .topic.tw {background-position:0 -28px; margin:30px 0 12px 0;}
+#account-settings .settings-social strong {color:#4c4c4c; font-weight:bold; display:block; padding:0 0 6px 0;}
+#account-settings .settings-social a {color:#68bede;font-weight: 700;}
+#account-settings .settings-social span {color:#808080; display:inline-block; margin:0 0 10px 0; }
+#account-settings .settings-social p {padding:0 0 3px 0;}
+#account-settings .settings-social div.email-me {margin:42px 0 0 0;}
+#account-settings .settings-social div.email-me h4 {color:#4c4c4c; font-size:14px; font-family:Arial Black; margin:0 0 12px -8px;}
+
+
+#account-settings .gender .checkboxOn .lbl {color:#fff;}
+#account-settings .gender label.lbl {position:absolute; font-family:Arial Black;  font-size:12px; color:#4d4d4d; z-index:2; margin:9px 0 0 26px; cursor:pointer;}
+#account-settings .gender input {width:60px;}
+#account-settings .gender .checkboxOff {background:#e6e6e6;}
+#account-settings .gender .checkboxOn  {background:#68bede;}
+#account-settings .gender .checkboxDiv { width:60px; height:18px; line-height:28px; border:none; 
+cursor:pointer;  margin:0 10px 8px 0; padding: 0 0 10px 0;
+-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;}
+
+#account-settings .checkboxOff {background:url(/assets/ico/checkbox2.png) no-repeat 0 -16px;}
+#account-settings .checkboxOn  {background:url(/assets/ico/checkbox2.png) no-repeat 0 0;}
+#account-settings .checkboxDiv {display:inline-block; position:relative; top:2px; margin:0 16px 0 0;}
+
+
+.widget-user-panel {}
+.widget-user-panel ul {width:200px; margin:0 0 30px 0;}
+.widget-user-panel li {background: url(/assets/widget/line-user-panel.png) repeat-x left bottom;}
+.widget-user-panel a {height:54px; line-height:54px; display:block; font-size:18px; font-weight:bold; color:#808080;
+padding:0 0 0 70px; background: url(/assets/ico/ico-user-panel.png) no-repeat left top;}
+
+.widget-user-panel li a:hover, .widget-user-panel li.active a {text-decoration:none; color:#fff; text-shadow:0 1px 2px #000000}
+
+.widget-user-panel li:hover, .widget-user-panel li.active {  background-color: #cfcfcf;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#cfcfcf), color-stop(25%, #cfcfcf), to(#9a9a9a));
+  background-image: -webkit-linear-gradient(#cfcfcf, #cfcfcf 25%, #9a9a9a);
+  background-image: -moz-linear-gradient(top, #cfcfcf, #cfcfcf 25%, #9a9a9a);
+  background-image: -ms-linear-gradient(#cfcfcf, #cfcfcf 25%, #9a9a9a);
+  background-image: -o-linear-gradient(#cfcfcf, #cfcfcf 25%, #9a9a9a);
+  background-image: linear-gradient(#cfcfcf, #cfcfcf 25%, #9a9a9a);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cfcfcf', endColorstr='#9a9a9a', GradientType=0);
+}
+.widget-user-panel li.notifications a {background-position:10px 6px;}
+.widget-user-panel li.my_gripes a {background-position:10px -44px;}
+.widget-user-panel li.subscriptions  a {background-position:10px -100px;}
+.widget-user-panel li.account a {background-position:10px -150px;}
+
+
+
+#account-settings button::-moz-focus-inner, 
+#account-settings input[type=submit]::-moz-focus-inner,
+#account-settings input[type=button]::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+#account-settings button.delete-account {
+  background:#ffc1c1; color: #ff0000; font-weight: bold; position:absolute; right:24px; bottom:17px;
+}
+#map_canvas {
+  display: none;
+}
+div.pac-container {
+  margin: -4px 0 0 0;
+ background: #E6E6E6; padding: 5px 0 0 0; width: 232px; border:none;
+-webkit-border-radius:0 0 6px 6px;
+-moz-border-radius:0 0 6px 6px;
+border-radius:0 0 6px 6px;
+
+  -webkit-box-shadow: 0px 4px 9px -4px #9D9D9D;
+  -moz-box-shadow: 0px 4px 9px -4px #9D9D9D;
+  box-shadow: 0px 4px 9px -4px #9D9D9D;
+  
+}
+.pac-item {padding:4px;}
+
+.status-bar, .status-barSett  {
+  float:left;
+}
+.status-bar, .status-barSett {
+  padding: 5px 0 0 40px!important;
+}
+.status-bar img {
+  width: 20px;
+  display: none;
+}
+
+.status-barSett img {
+  width: 20px;
+  display: none;
+}
+
+#account-settings .btn-save-settings, #account-settings .btn-change-password {
+
+  cursor:default!important;
+}
+#account-settings .btn-save-settings.on,  #account-settings .btn-change-password.on{
+  opacity: 1;  filter: alpha(opacity=100); 
+  cursor:pointer!important;
+}
+#account-settings #file-upload-panel {
+  left: 3px;
+  top:-42px;
+}
+#account-settings  .ldng {
+  margin: 21px 0 0 21px!important;
+  width: 32px!important;
+  height: 32px!important;
+}
+
+#account-settings  #file_image {
+  margin-left:0px!important;
+}
+
+#account-settings .inputError {
+-webkit-box-shadow: 0 1px 7px -3px #cb1b22 inset;
+-moz-box-shadow:0 1px 7px -3px #cb1b22 inset;
+box-shadow: 0 1px 7px -3px #cb1b22 inset;
+}

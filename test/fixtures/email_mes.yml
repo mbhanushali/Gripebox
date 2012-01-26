@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  update_comments: false
+  update_subscriptions: false
+  get_top_gripes_a_week: false
+
+two:
+  user: 
+  update_comments: false
+  update_subscriptions: false
+  get_top_gripes_a_week: false

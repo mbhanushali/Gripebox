@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  gripe: false
+  amp: false
+  access_token: MyString
+
+two:
+  user: 
+  gripe: false
+  amp: false
+  access_token: MyString

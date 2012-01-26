@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gripe: 
+  value: 1
+  user: 
+
+two:
+  gripe: 
+  value: 1
+  user: 

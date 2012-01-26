@@ -1,0 +1,29 @@
+<div class="main" style="width: 960px; margin: 20px; font-family: Arial;">
+  <img src="<%= url_for(root_url.to_s + "assets/mail.png") %>" alt="Header image">
+
+  <h2 style="font-size: 24px; padding: 20px 0 20px 20px; color: #4c4c4c; font-family: Arial; margin:0">Hi, <%= @user.username %>!</h2>
+
+
+  <div class="info" style="padding: 0 40px 0 20px; font-family: Arial;">
+   <h4 style=" color: #999999;font-weight: normal;font-size: 19px;padding: 0 0 5px 0;margin: 0 0 8px 0;border-bottom: 1px solid #ccc;font-style: italic; font-family: Arial;" >Top week 3 gripes:</h4>
+   <p>
+     <ul id="" class="">
+      <% @buzz.each do |buzz| %>
+        <li>
+          <%= link_to buzz.tag, search_url(:"search-keywords" => buzz.tag) %>
+        </li>
+      <% end %>  
+      
+     </ul><!-- / -->
+   </p>
+
+   <p style="color: #b2b2b2; padding: 0 0 10px 0;font-size: 14px; margin:0; font-family: Arial;">
+    If you received this message in error and did not sign up for a Gripebox account, click 
+    <a href="<%= url_for(root_url.to_s) %>" style="color: #68bede; font-family: Arial;">not my account.</a>
+   </p>
+   <p style="color: #b2b2b2; padding: 0 0 10px 0;font-size: 14px; margin:0; font-family: Arial;">
+    Please do not reply to this message; it was sent from an unmonitored email address.  This message is a service email related to your use of Gripebox.  For general inquiries or to request support with your Gripebox account, please visit us at <a href="<%= url_for(root_url.to_s) %>" style="color: #68bede; font-family: Arial;">Gripebox Support.</a>
+
+   </p>
+  </div>
+</div>

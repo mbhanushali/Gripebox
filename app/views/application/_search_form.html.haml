@@ -1,0 +1,4 @@
+%form.search-form{ :method => "GET", :action => search_path }
+  %input{ :type => "text", :class => "tips search-text", :default => "", :name => "search-keywords", :value => params[:"search-keywords"] }
+  %input{ :type => "submit", :value => "", :class => "search-button"}
+  .clear

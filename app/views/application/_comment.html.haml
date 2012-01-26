@@ -1,0 +1,20 @@
+%div{ :class => reply == true ? "gripe-comment reply" : "gripe-comment"}
+  .gripe-comment-img
+    - if comment.user.avatar.present?
+      = image_tag(comment.user.avatar(:thumb), :alt => comment.user.username)
+    - else
+      = image_tag("/assets/img/i1.png", :alt => comment.user.username)
+    %span
+    %a{ :href => "#" }>= comment.user.username
+  .gripe-comment-content  
+    .gripe-comment-text>= comment.body
+
+    .gripe-comment-desc
+      %span>= time_ago_in_words(comment.created_at) + " ago "
+      %a{ :href => "#", :class => "flag"} flag
+      - unless reply
+        %a{ :href => "#", :class => "comm-reply", :reply_id => comment.id } reply
+  .clear
+  - if comment.has_children?
+    - comment.children.each do |comment|
+      = render :partial => "comment", :locals => { :gripe => gripe, :comment => comment, :reply => true }

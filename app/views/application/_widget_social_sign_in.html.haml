@@ -1,0 +1,15 @@
+- unless user_signed_in?
+  .widget-social-sign-in
+    %a{ :href => new_user_session_path, :class => "sign-link" } Sign In
+    .btn-social-sign
+      %span sign in with:
+      %ul
+        %li.fb 
+          %a{ :href => "/auth/facebook" } Facebook
+        %li.tw 
+          %a{ :href => "/auth/twitter" } Twitter
+- else 
+  .widget-social-sign-in
+    = link_to current_user.username, account_path, :class => "username-link"
+    .btn-social-sign
+      = link_to "Sign out", destroy_user_session_path, :method => :delete    

@@ -1,0 +1,49 @@
+.widget-filter-sort {}
+.widget-filter-sort {}
+.widget-filter-sort .box.gray {}
+.widget-filter-sort .topic {}
+.widget-filter-sort .topic h3 {}
+
+.filter-sort-content {
+  width: 170px; margin: 0 0 4px 0;
+}
+
+.filter-sort-content .date, .filter-sort-content .views, .filter-sort-content .comments {
+  border-bottom: 1px solid #a6a6a6; 
+}
+.filter-sort-content form div em {
+  width: 25px; height:25px; display: inline-block; background: url(/assets/ico/ico-filter-sort.png) no-repeat 0 0; float:left; margin: 0 8px 0 0;
+}
+.filter-sort-content form div label, .filter-sort-content form div strong {
+  color: #4d4d4d; cursor:pointer; line-height: 25px; display: inline-block; 
+} 
+.filter-sort-content form div span {
+color:#808080; font-size: 9px;
+}
+.filter-sort-content form .checkboxDiv {width:17px; float:right; height:16px; position:relative; top:4px; padding:0; right:4px;}
+ .filter-sort-content form .checkboxDiv input {opacity:0}
+.filter-sort-content form .checkboxOff {background:url(/assets/ico/checkbox3.png) no-repeat 0 -16px;}
+.filter-sort-content form .checkboxOn  {background:url(/assets/ico/checkbox3.png) no-repeat 0 0;}
+
+.filter-sort-content form div.arrow {
+  width:39px; height:11px; background:url(/assets/ico/ico-arrow.png) no-repeat 0 0; float:right; margin: 7px 5px 0 0;
+}
+.filter-sort-content form div.arrow.active {
+  background-position: 0 -11px;
+}
+.filter-sort-content form div.arrow .s-top, .filter-sort-content form div.arrow .s-down {
+    cursor: pointer; width: 18px; float:left; height:11px;
+}
+.filter-sort-content form div.arrow .s-down {
+  float: right; 
+}
+.filter-sort-content form div.views em  {
+  background-position: 0 -24px;
+}
+.filter-sort-content form div.comments em  {
+  background-position: 0 -50px;
+}
+.filter-sort-content form div.activity em  {
+  background-position: 0 -75px;
+}
+

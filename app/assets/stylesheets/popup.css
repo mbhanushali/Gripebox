@@ -1,0 +1,277 @@
+.bl-popup {display:none; z-index: 8; position:relative}
+.bl-popup input {border:0;}
+.db {display:block}
+.popup-sign-link, .thank-you, .popup-embed, .change-pass {width:340px; height:auto; display: block; z-index:101; margin:auto; position:fixed; top:120px; left:50%; margin-left:-170px;
+  border:5px solid #fff; overflow: hidden; background:#b5171e;
+  border-radius: 22px;
+  -webkit-border-radius: 22px;
+  -moz-border-radius: 22px;
+
+  -webkit-box-shadow: 2px 8px 5px 0px #2C2C2C;
+  -moz-box-shadow: 2px 8px 5px 0px #2C2C2C;
+  box-shadow: 2px 8px 5px 0px #2C2C2C;
+}
+.popup-embed .red {
+  padding:10px 20px;
+}
+
+.popup-embed label {
+  display: block;
+  padding: 0 0 4px 0;
+}
+.popup-embed .popup-warning-block{
+  margin:10px 0 10px -52px;
+  display: block!important;
+  position: static;
+}
+.popup-embed .btn {
+  font-size: 21px;
+  font-weight: bold;
+  margin:20px 0 0 10px; float:right;
+  padding: 0 15px 2px;
+}
+.popup-embed .tips {
+  width: 284px!important;
+}
+.popup-embed .embed-ok.off {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor:default;
+}
+.thank-you .red,  .popup-embed .red, .change-pass .red{
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+}
+
+.change-pass .btn.small {
+    border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  margin:30px 0 30px 0;
+}
+
+.thank-you .red h2 , .change-pass .red h2{
+  font-size: 26px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 36px 0 25px 0;
+  text-shadow: 0 -1px 0 #480003;
+}
+.change-pass .red h2 {
+  padding: 2px 0 5px 0;
+}
+.thank-you .red h3 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 0 25px 0;
+}
+
+.thank-you .red a{
+    font-size: 21px;
+    font-weight: bold;
+    margin: 55px 0 0;
+    padding: 0 17px 2px;
+    position: relative;
+    top:-30px;
+    left:110px;
+    text-decoration: none;
+ }
+.content-sign-link {}
+
+.content-sign-link.l {
+  -webkit-border-radius: 0 15px 15px 15px;
+  -moz-border-radius: 0 15px 15px 15px;
+  border-radius: 0 15px 15px 15px 15px;
+}
+.content-sign-link.r {
+  -webkit-border-radius: 15px 0 15px 15px;
+  -moz-border-radius: 15px 0 15px 15px;
+  border-radius: 15px 0 15px 15px;
+}
+
+.tabs-sign-link {height:32px;  overflow: hidden; background:#b5171e;
+ -webkit-border-radius: 15px 15px 0 0;
+  -moz-border-radius: 15px 15px 0 0;
+  border-radius: 15px 15px 0 0;}
+.tabs-sign-link div {float:left; height:32px; line-height:28px; font-size:24px; color:#720000; width:170px; text-align:center; cursor:pointer; font-family: Arial Black;
+}
+
+.tabs-sign-link .tabs-sign.active {
+  background:#e81f27;
+  color:#fff;
+  -webkit-box-shadow: 2px 0px 7px 0 #000;
+  -moz-box-shadow: 2px 0px 7px 0 #000;
+  box-shadow: 2px 0px 7px 0 #000;
+
+  -webkit-border-radius: 0 15px 0 0;
+  -moz-border-radius: 0 15px 0 0;
+  border-radius: 0 15px 0 0;
+  text-shadow: 0 -1px 0 #480003; 
+}
+.tabs-sign-link .tabs-register.active {
+  background:#ea2028;
+  color:#fff;
+  -webkit-box-shadow: -2px 0px 7px 0 #000;
+  -moz-box-shadow: -2px 0px 7px 0 #000;
+  box-shadow: -2px 0px 7px 0 #000;
+
+  -webkit-border-radius: 15px 0 0 0;
+  -moz-border-radius: 15px 0 0 0;
+  border-radius: 15px 0 0 0;
+}
+
+.content-sign-link-bg { background: url(/assets/ico/ico-popup-footer.png) no-repeat 20px bottom; height:auto; position:relative; }
+.content-sign-link-bg  .sign-form {padding:42px 56px 0 50px;}
+.tabs-block-sign,
+.tabs-block-register {display:none; padding:0 0 105px 0}
+.tabs-block-sign {
+  padding:0 0 52px 0;
+}
+.tabs-block-bethink {
+  padding:0 0 166px 0;
+}
+.field_with_errors input{
+-webkit-box-shadow: 0 1px 7px -3px #cb1b22 inset;
+-moz-box-shadow:0 1px 7px -3px #cb1b22 inset;
+box-shadow: 0 1px 7px -3px #cb1b22 inset;
+}
+.content-sign-link-bg  .db {display:block;}
+.sign-form p {margin:0 0 11px 0;}
+.sign-form  span.letters {
+  font-size: 13px; color:#fff; text-decoration: underline; display: inline-block; margin:0 0 0 15px;
+  position:relative; top:-2px;
+}
+
+span.letters.fix  {
+  display: none;
+}
+
+
+
+.sign-form input[type="text"], .popup-embed input[type="text"],
+.sign-form input[type="email"], .popup-embed textarea,
+.sign-form input[type="password"]{ height:28px; line-height:28px; width:218px; padding:0 8px; color:#656565; font-size:18px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;}
+.sign-form p label , .sign-form .field_with_errors  label,  .popup-embed label{font-size:20px; font-weight:bold; color:#fff;
+text-transform: lowercase;
+}  
+.sign-form p .span_val, .sign-form .field_with_errors .span_val, .popup-embed .span_val {color:#656565; font-size:18px; padding: 4px 0 0 10px;}
+
+.sign-form  .bethink {text-decoration:underline; color:#68bede; font-size:12px; display:inline-block; margin:3px 0 0 0; float:right;}
+.sign-form  .bethink:hover {text-decoration:none; color:#68bede; }
+
+.sign-form p.remember {padding:27px 0 0 0;}
+.sign-form p.remember * {float:right;}
+.sign-form p.remember label  {font-size:14px; font-weight:normal;}
+.sign-form p input.btn {font-size:21px; font-weight:bold; margin:10px 0 0 0; float:right;}
+.sign-form  input[type="checkbox"] {margin:0 10px 0 0;}
+
+
+#user_new {
+  width: 235px;
+}
+
+#user_new p label, #user_new .field_with_errors  label{
+  font-size:20px; font-weight:bold; color:#B2B2B2; display: block; padding: 0 0 4px 0;
+}
+
+#user_new input[type="text"],
+#user_new input[type="email"],
+#user_new input[type="password"]{
+  border: 1px solid #ccc;
+}
+#user_new .checkboxOff  {
+  background: url(/assets/ico/checkbox2.png) no-repeat scroll 0 -16px transparent;
+}
+#user_new .checkboxOn  {
+   background: url(/assets/ico/checkbox2.png) no-repeat scroll 0 0 transparent;
+}
+
+#user_new p.remember label {
+  font-size: 16px;
+}
+
+#user_new p .btn {
+    margin: 0 0 0 !important;
+    padding: 0 15px 2px;
+}
+#error_explanation h2 {
+  font-size: 13px; font-weight:normal; color: #813d3d;
+}
+#error_explanation li {
+  list-style: disc inside ;
+}
+.tabs-block-register input.btn {margin:54px 0 0 0!important;}
+
+.popup-warning-block {
+  position: absolute; height:30px; line-height: 30px; color:#fff; width: 100%;
+  background: #68bede url(/assets/ico/ico-popup-warning.png) no-repeat 49px 3px;
+  padding:0 0 0 90px; font-size: 13px; display: none;
+}
+
+.field-error {
+  -webkit-box-shadow: 0px 0px 2px 2px #68bede!important;
+  -moz-box-shadow: 0px 0px 2px 2px #68bede!important;
+  box-shadow: 0px 0px 2px 2px #68bede!important; 
+}
+.change-pass .popup-warning-block.nobg{ 
+  background-image: none; display: block; padding: 0;
+  text-align: center; 
+}
+
+.change-pass .popup-warning-block{ 
+  padding: 0;
+  text-align: center; 
+}
+
+.change-pass .popup-warning-block em {
+  color: #FFFFFF;
+  padding:0 0 0 30px;
+}
+
+.change-pass span.letters {
+  margin:0;
+  font-size: 10px;
+}
+.change-pass .content-sign-link-bg .sign-form {
+  padding: 48px 56px 0 50px;
+}
+.tabs-block-bethink .popup-warning-block2 {
+  background-image: none; display: block; padding-left:28px
+}
+.popup-warning-block span {
+  border-color: #68bede transparent transparent transparent;
+  border-style: solid;
+  border-width:10px;
+  height: 0px;
+  width: 0px;
+  display:block;
+  margin: 0 auto;
+}
+.tabs-block-bethink {
+  display: none;
+}
+.tabs-block-bethink p .btn {
+  padding: 0 10px 2px;
+  margin: 112px 0 0 0 !important;
+  font-size: 18px !important;
+}
+#overlay {
+  position: fixed;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}

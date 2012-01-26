@@ -1,0 +1,15 @@
+= form_for :user, :url => user_session_path, :html => { :autocomplete => "off", :class => "sign-form"} do |f|
+  %p
+    = f.label "email or username"
+    = f.text_field :login, :class => "tips", :default=> ""
+  %p
+    = f.label "password"
+    = f.password_field :password, :class => "tips", :default => ""
+    %a{:href=>new_user_password_path, :class=>"bethink"} forgot password
+  %p.remember
+    = f.label :remember_me
+    = f.check_box :remember_me, :class => "checkbox", :checked => "checked"
+  .clear
+  %p
+    = f.submit "Sign in", :class=>"btn small red", :value=>"sign in"
+  %p 

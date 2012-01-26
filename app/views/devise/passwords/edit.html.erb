@@ -1,0 +1,21 @@
+<h2>Change your password</h2>
+
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :autocomplete => "off", :class => "sign-form change_your_password" }) do |f| %>
+
+
+  <p>
+    <%= f.label :password, "New password" %>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation, "Confirm new password" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.submit "Change password", :class => "btn red" %>
+  </p>
+<% end %>
+
+

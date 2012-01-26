@@ -1,0 +1,10 @@
+%h2.h-left>= title
+%ul.ul-top-gripes
+  %li day |
+  %li.active week  
+  %li month  
+.clear 
+.list-gripes
+  - if gripes.present?
+    - gripes.each do |gripe|
+      = render :partial => "gripe", :locals => { :gripe => gripe }

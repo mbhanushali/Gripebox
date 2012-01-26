@@ -1,0 +1,31 @@
+.widget-top10-griped
+  .box.gray
+    .tabs-top-griped
+      .top-week.active{ :rel => "top-week"} week
+      .top-month{ :rel => "top-month"} month
+      .top-year{ :rel => "top-year"} year
+      .clear
+    .topic
+      %h3 Top 10 Griped
+      %strong companies                   
+    %ul.list-top10-griped{ :rel => "top-week", :style => "display:block"}
+      - key = 0
+      - Buzz.where('period = ? AND published = ?','week',true).order('count DESC').limit(10).each do |tag|
+        %li
+          %span
+            = key = key + 1
+          %a{ :href => search_path(:"search-keywords" => tag.tag) }>= tag.tag
+    %ul.list-top10-griped{ :rel => "top-month"}
+      - key = 0
+      - Buzz.where('period = ? AND published = ?','month',true).order('count DESC').limit(10).each do |tag|
+        %li
+          %span
+            = key = key + 1
+          %a{ :href => search_path(:"search-keywords" => tag.tag) }>= tag.tag
+    %ul.list-top10-griped{ :rel => "top-year"}
+      - key = 0
+      - Buzz.where('period = ? AND published = ?','year',true).order('count DESC').limit(10).each do |tag|
+        %li
+          %span
+            = key = key + 1
+          %a{ :href => search_path(:"search-keywords" => tag.tag) }>= tag.tag

@@ -1,0 +1,42 @@
+.widget-filter-sort.filter
+  .box.gray
+    .topic
+      %h3 Sort
+      .bl-clear clear x
+      .clear
+    
+    .filter-sort-content
+      %form
+        %div.date
+          %em 
+          %strong Date
+          .arrow   
+            .s-top
+            .s-down 
+          .clear  
+
+        %div.views
+          %label{ :for => "views"} 
+            %em
+            Most Views
+          %input{ :id => "views", :class => "checkbox", :name => "filter-sort", :value => "views", :type => "checkbox"} 
+        .clear  
+
+        %div.comments
+          %label{ :for => "comments"} 
+            %em
+            Most Comments
+          %input{ :id => "comments", :class => "checkbox", :name => "filter-sort", :value => "comments", :type => "checkbox"} 
+        .clear  
+
+        %div.activity
+          %label{ :for => "activity"} 
+            %em
+            Latest Activity
+          %input{ :id => "activity", :class => "checkbox", :name => "filter-sort", :value => "activity", :type => "checkbox"} 
+        .clear
+        %input{ :type => "hidden", :class => "hidden-search", :name => "hidden-search", :value => ""}
+        - if params[:action] == 'mygripes' 
+          %input{ :type => "hidden", :class => "hidden-userid", :name => "hidden-userid", :id => "hidden-userid", :value => current_user.id }
+
+        

@@ -1,0 +1,22 @@
+.notifications_list
+  %h1 
+    %span.username>= current_user.username
+    &#39;s notifications
+  %ul.notifications
+    - @msg.each do |msg|
+      %li{ :link => msg.activity.gripe.id, :msg_id => msg.id, :class => ("read" if msg.unread)}
+        - if msg.gb == 'My Gripes'
+          .type.gripes
+            .typename My Gripes
+        - else
+          .type
+            .typename Subscriptions              
+        .text
+          %a>=msg.activity.what
+          =raw "&nbsp;"
+          posted to 
+          =raw "&#034;" + truncate(msg.activity.gripe.title, :length => 24, :omnission => '...') + "&#034;" 
+        
+        .time>= msg.activity.created_at.strftime("%m/%d/%y")
+        /.time>= time_ago_in_words(msg.activity.created_at)
+  / %button.load_older_posts{} load older posts

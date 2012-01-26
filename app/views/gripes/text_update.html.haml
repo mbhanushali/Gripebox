@@ -1,0 +1,14 @@
+.gripe-content
+  .box-content-info
+    %span.update-text
+      Update!
+    %span 
+      posted 
+      = @update.created_at.strftime("%m/%d/%y")
+  .clear
+  .box-content
+    .gripe-preview>= @update.content
+    .gripe-preview-all
+      %p>= @update.content
+
+

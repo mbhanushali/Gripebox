@@ -1,0 +1,71 @@
+.widget-filter-tags {}
+.widget-filter-tags {}
+.widget-filter-tags .box.gray {}
+.widget-filter-tags .topic {}
+.widget-filter-tags .topic h3 {}
+
+.filter-tags-content {
+  width: 170px; margin: 8px 0 4px 0;
+}
+.filter-tags-content form {
+  position: relative;
+}
+.filter-tags-content .span_val {
+  color: #999; font-size: 12px; padding: 6px 0 0 26px; 
+}
+
+.filter-tags-content .loupe {
+  background: url(/assets/ico/ico-loupe.png) no-repeat; position:absolute; width: 18px; height: 17px; margin: 4px 0 0 5px;
+}
+.filter-tags-content input {
+  border-right: 1px solid #c9c9c9; border-left: 1px solid #c9c9c9; 
+  border-top: 1px solid #858585; border-bottom: 1px solid #f4f4f4; 
+  height: 22px; line-height: 22px;
+  padding: 0 6px 0 23px; width: 136px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), color-stop(25%, #fff), to(#e8e8e8));
+  background-image: -webkit-linear-gradient(#fff, #fff 25%, #e8e8e8);
+  background-image: -moz-linear-gradient(top, #fff, #fff 25%, #e8e8e8);
+  background-image: -ms-linear-gradient(#fff, #fff 25%, #e8e8e8);
+  background-image: -o-linear-gradient(#fff, #fff 25%, #e8e8e8);
+  background-image: linear-gradient(#fff, #fff 25%, #e8e8e8);
+
+
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+
+.filter-tags-content ul {
+  width: 166px; margin: 10px 0 10px 0;
+  background: #b3b3b3; 
+  line-height:15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.filter-tags-content ul li {
+  padding: 4px 7px;
+}
+.filter-tags-content ul li em.close {
+  cursor: pointer; background: #4D4D4D url(/assets/ico/ico-close-tags.png) no-repeat;
+  width: 12px; height:12px; display: inline-block; position:relative; top:1px;
+
+}
+.filter-tags-content ul li span {
+  font-size: 12px; font-weight: bold; color: #fff; display: inline-block; margin:0 0 0 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

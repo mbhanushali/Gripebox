@@ -1,0 +1,10 @@
+- if (params[:action] != 'new') && (params[:action] != 'edit')
+  .topic-search
+  = render :partial => "application/widget_filter_tags"
+  = render :partial => "application/widget_filter_power"
+  = render :partial => "application/widget_filter_media"
+  = render :partial => "application/widget_filter_sort", :locals => { :gripe => "user" }
+- else 
+  %h2 Buzz.
+  = render :partial => "application/widget_top10_griped"
+  /= render :partial => "application/widget_poll_box"    

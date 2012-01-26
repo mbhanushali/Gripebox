@@ -1,0 +1,20 @@
+<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :autocomplete => "off", :class => "sign-form", :id => ""}) do |f| %>
+  <input type="hidden" value="<%= params[:reset_password_token] %>" name="user[reset_password_token]" id="user_reset_password_token">
+  <p>
+    <%= f.label :password, "New password:" %>
+    <span class="letters">(6 letters or more)</span>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :password_confirmation, "Confirm password:" %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.submit "reset", :class => "btn small red" %>
+  </p>
+  <div class="clear"></div>
+<% end %>
+
+

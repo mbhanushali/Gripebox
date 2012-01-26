@@ -1,0 +1,35 @@
+- video = Array['video','embed_video']
+- image = Array['image','embed_image']
+.widget-filter-media.filter
+  .box.gray
+    .topic
+      %h3
+        Media
+        %em
+      .bl-clear clear x
+      .clear
+    
+    .filter-media-content
+      %form
+        /%div.webcam
+        /  %label{ :for => "webcam"}
+        /    %em
+        /    Webcam
+        /    %span (1,000,000)
+        /  %input{ :id => "webcam", :class => "checkbox", :name => "filter-media", :value => "webcam", :type => "checkbox"} 
+        /.clear  
+        %div.video
+          %label{ :for => "video"} 
+            %em
+            Video
+            %span>= " (" + Gripe.joins(:file_gripe).where('file_gripes.mimetype' => video).count.to_s + ")"
+          %input{ :id => "video", :class => "checkbox", :name => "filter-media", :value => "video", :type => "checkbox"} 
+        .clear  
+        %div.photos
+          %label{ :for => "photos"}
+            %em 
+            Photos
+            %span>= " (" + Gripe.joins(:file_gripe).where('file_gripes.mimetype' => image).count.to_s + ")"
+          %input{ :id => "photos", :class => "checkbox", :name => "filter-media", :value => "photos", :type => "checkbox"}   
+        .clear  
+        

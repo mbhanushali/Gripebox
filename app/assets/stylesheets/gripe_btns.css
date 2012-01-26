@@ -1,0 +1,14 @@
+.widget-gripe-btns {text-align:center;}
+  .btn-gripe {display:block;  cursor:pointer;  background: url(/assets/btn-gripe.png) no-repeat; width:131px!important; height:57px!important; border:0; margin:22px auto 3px auto; color:#808080;}
+  .btn-gripe:hover {background-position:0 -114px;}
+  .btn-gripe:active {background-position:0 -57px;}
+.submitOff.btn-gripe:hover,
+.submitOff.btn-gripe:active {
+	background-position: 0 0; cursor:default;
+}
+.widget-gripe-btns a {font-size:11px; color:#808080; display:block; text-decoration:underline;}
+.widget-gripe-btns a:hover {text-decoration:none;}
+
+.widget-gripe-btns .btn-gripe-view-all {display:block;  background: url(/assets/btn-gripe-view-all.png) no-repeat; width:159px; height:72px; margin:13px auto 20px 34px; text-indent: -9999px; color:#808080;}
+.widget-gripe-btns .btn-gripe-view-all:active {background-position:0 -72px; }
+ 

@@ -1,0 +1,5 @@
+%h2>= title	
+.list-gripes
+  - if gripes.present?
+    - gripes.each do |gripe|
+      = render :partial => "gripe", :locals => { :gripe => gripe }

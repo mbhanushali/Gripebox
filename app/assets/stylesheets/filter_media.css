@@ -1,0 +1,39 @@
+.widget-filter-media {}
+.widget-filter-media {}
+.widget-filter-media .box.gray {}
+.widget-filter-media .topic {}
+.widget-filter-media .topic h3 em {
+  background: url(/assets/widget/clip.png) no-repeat right 0; display:block;
+  width:21px; height:16px; position: absolute; margin: -16px 0 0 42px;
+}
+
+.filter-media-content {
+  width: 170px; margin: 8px 0;
+}
+.filter-media-content .webcam, .filter-media-content .video, .filter-media-content .photos {
+  padding:2px 0 0 0; 
+}
+.filter-media-content form div em {
+  width: 35px; height:30px; display: inline-block; background: url(/assets/ico/input-upload-ico.png) no-repeat 0 0; float:left; margin: 0 5px 0 0;
+}
+.filter-media-content form div label {
+  color: #4d4d4d; cursor:pointer; line-height: 30px; display: inline-block; 
+} 
+.filter-media-content form div span {
+color:#808080; font-size: 9px;
+}
+.filter-media-content form .checkboxDiv {width:17px; float:right; height:16px; position:relative; top:7px; padding:0; right:4px}
+.filter-media-content form .checkboxOff {background:url(/assets/ico/checkbox3.png) no-repeat 0 -16px;}
+.filter-media-content form .checkboxOn  {background:url(/assets/ico/checkbox3.png) no-repeat 0 0;}
+
+
+.filter-media-content form div.webcam em  {
+  background-position: -110px 0;
+}
+.filter-media-content form div.video em  {
+  background-position: -35px 0;
+}
+.filter-media-content form div.photos em  {
+  background-position: 0 0;
+}
+

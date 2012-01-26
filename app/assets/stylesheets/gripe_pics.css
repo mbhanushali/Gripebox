@@ -1,0 +1,63 @@
+.widget-gripe-pics{
+  background: #ccc;  margin: 0 0 6px 0; padding:10px 10px 2px 12px; overflow: hidden;  display: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.widget-gripe-pics ul {
+  width: 565px;
+}
+.widget-gripe-pics ul li {
+  display: block; width: 55px; height: 55px; position: relative; margin:0 13px 10px 0;
+  float:left;
+}
+
+.widget-gripe-pics ul li img {
+  display: block; width: 55px; height: 55px; 
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+#lightbox-container-image-box {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 580px!important;
+  height:622px!important;
+}
+
+#lightbox-secNav {
+  position:relative; z-index:2; top:10px;
+}
+
+#lightbox-container-image {
+
+}
+#lightbox-secNav-btnClose {
+  width: 50px!important;
+
+}
+#lightbox-image {
+border: 2px solid #ccc;
+width: 500px;
+height:500px;
+}
+#lightbox-nav {
+  top:45px!important;
+}
+#lightbox-container-image-data-box {
+  padding:0 25px!important;
+  position:relative;
+  top:-65px;
+  width: 490px!important;
+}
+#lightbox-image-details-currentNumber {
+  display: none!important;
+
+}
+#lightbox-image-details {
+  width:100%!important;
+}
+#lightbox-image-details-caption {
+  color:#969696; font-size: 16px; line-height: 20px; padding: 10px 0 0 0; display: block; 
+}

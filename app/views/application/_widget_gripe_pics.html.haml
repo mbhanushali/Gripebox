@@ -1,0 +1,12 @@
+.widget-gripe-pics
+  %ul
+    - gripe.file_gripe.where('mimetype = ? OR mimetype = ?','image','embed_image').each do |image|
+      - if  image.mimetype == 'image'
+        %li
+          %a{ :href => "/system/images/" + image.file_upload_id.to_s + "/medium/" + image.file_upload.image_file_name ,  :title => image.overview, :rel => "album-" + gripe.id.to_s} 
+            = image_tag("/system/images/" + image.file_upload_id.to_s + "/thumb/" + image.file_upload.image_file_name, :alt => image.overview )
+      - else
+        %li
+          %a{ :href => image.url , :title => image.overview, :rel => "album-" + gripe.id.to_s} 
+            = image_tag(image.url, :alt => image.overview )      
+.clear                        

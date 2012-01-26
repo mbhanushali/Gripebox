@@ -1,0 +1,21 @@
+.widget-gripe-video
+  %ul
+    - gripe.file_gripe.where('mimetype = ? OR mimetype = ?','video','embed_video').each do |image|
+      %li
+        %em.ovr
+        %a{ :rel => "video_source", :href => "#inline", :title => image.overview }
+          - if image.mimetype == 'video'
+            %div.code-video
+              .media-content{ :id => "video" + image.id.to_s, :source => "/system/sources/" + image.file_upload_id.to_s + "/original/" + image.file_upload_id.to_s + ".flv" }
+              //.mediaplayer{ :id => "player" + gripe.id.to_s }
+            = image_tag("/system/sources/" + image.file_upload_id.to_s + "/original/" + image.file_upload_id.to_s + ".jpg", :alt => image.overview )
+            %em>= image.file_upload.duration
+          - else   
+            %div.code-video
+              .media-content{ :id => "video" + image.id.to_s, :source => image.url }
+
+              //.mediaplayer{ :id => "player" + gripe.id.to_s }
+            = image_tag("/assets/ico/embed_video_tmb.png", :alt => image.overview )
+        %span
+          = truncate(image.overview, :length => 46, :omnission => '...')
+.clear

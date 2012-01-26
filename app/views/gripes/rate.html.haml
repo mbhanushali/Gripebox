@@ -1,0 +1,12 @@
+- all = @gripe.rate.count
+- red = @gripe.rate.where('value = ?', 1).count
+- green = @gripe.rate.where('value = ?', 0).count
+- if all != 0 
+  - red_percent = red.to_f/all*100
+  - green_percent = green.to_f/all*100
+
+- red == 0 ? green > 0 ? green_percent = 100 : green_percent = 50 : nil
+- green == 0 ? red > 0 ? red_percent = 100 : red_percent = 50 : nil
+
+.red{ :style => "width: " + red_percent.to_i.to_s + "%;" }>= red
+.green{ :style => "width: " + green_percent.to_i.to_s + "%;" }>= green

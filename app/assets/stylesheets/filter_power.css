@@ -1,0 +1,40 @@
+.widget-filter-power {}
+.widget-filter-power {}
+.widget-filter-power .box.gray {}
+.widget-filter-power .topic {}
+.widget-filter-power .topic h3 {}
+
+.filter-power-content {
+  width: 108px; margin: 5px auto;
+}
+.filter-power-content span {
+  font-size: 12px; color: #666565; text-align: center; display: block; padding: 2px 0 0 0;
+}
+.filter-power-content .weak-content-btn, .filter-power-content .strong-content-btn {
+  float: left;  width: 54px; cursor: pointer;
+}
+.filter-power-content .active {
+ cursor:default;
+}
+
+.filter-power-content .weak-content-btn.active .weak {
+  background-position: 0 -36px; 
+}
+.filter-power-content .weak-content-btn.active span{
+  color:#016a37;
+}
+
+.filter-power-content .strong-content-btn.active .strong {
+  background-position: -54px -36px;
+}
+.filter-power-content .strong-content-btn.active span{
+  color:#9a1b1e;
+} 
+
+
+.filter-power-content .weak, .filter-power-content .strong  {
+  height:36px; width: 54px; background: url(/assets/ico/ico-power.png) no-repeat 0 0; 
+}
+.filter-power-content .strong {
+  background-position: -54px 0;
+}

@@ -1,0 +1,19 @@
+.widget-viewer-news
+  - @news.each do |news|
+    .viewer-info{ :rel => "tab" + news.id.to_s }
+      %h3>= news.title
+      %p>= truncate(news.overview, :length => 194, :omission => '...')
+    .viewer-media{ :rel => "tab" + news.id.to_s }
+      - if news.embed.present?
+        =raw news.embed
+      - elsif news.video.present?
+        .newsvideo{ :id => "newsplayer" + news.id.to_s }
+      - else
+        = image_tag(news.image, :alt => 'news.title' )
+  .clear
+  %ul.viewer-preview
+    - @news.each do |news|
+      %li
+        = image_tag(news.image(:thumb), :alt => news.title, :rel => "tab" + news.id.to_s, :source => news.video, :image => news.image(:normal), :elem_id => "newsplayer" + news.id.to_s)
+        - if news.embed.present? && news.video.present?
+          %span.video

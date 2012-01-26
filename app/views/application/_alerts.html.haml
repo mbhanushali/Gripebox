@@ -1,0 +1,17 @@
+- if notice    
+  .main.alerts
+    .alert-message.success
+      %div
+        %a.close{:href => "#"} ×
+        %p= notice
+- if alert     
+  .main.alerts
+    .alert-message.error
+      %div
+        %a.close{:href => "#"} ×
+        %p= alert
+.main.alerts.cl
+  .alert-message.success
+    %div
+      %a.close{:href => "#"} ×
+      %p

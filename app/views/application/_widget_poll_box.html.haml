@@ -1,0 +1,24 @@
+.widget-poll-box
+  .box.gray
+    .topic
+      %h3 Poll Box
+    .poll-question
+      What cell phone provider has the worst reception?
+    %form.poll-ans
+      %p.first
+        %input{ :id => "poll_1", :class => "checkbox", :name => "poll", :vale => "", :type => "radio"} 
+        %label{ :for => "poll_1"} Verizon Wireless
+        %span.result 54%
+      %p
+        %input{ :id => "poll_2", :class => "checkbox", :name => "poll", :vale => "", :type => "radio"} 
+        %label{ :for => "poll_2"} T Mobil
+        %span.result 14%
+      %p
+        %input{ :id => "poll_3", :class => "checkbox", :name => "poll", :vale => "", :type => "radio"} 
+        %label{ :for => "poll_3"} ATT
+        %span.result 54%
+      %p
+        %input{ :id => "poll_4", :class => "checkbox", :name => "poll", :vale => "", :type => "radio"} 
+        %label{ :for => "poll_4"} Sprint
+        %span.result 4%
+  .clear      

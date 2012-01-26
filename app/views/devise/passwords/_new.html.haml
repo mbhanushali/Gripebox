@@ -1,0 +1,5 @@
+= form_for :user, :url => user_password_path, :html => { :autocomplete => "off", :class => "sign-form", :method => :post } do |f|
+  %p
+    = f.label :email
+    = f.text_field :email
+  %p= f.submit "send password", :class=>"btn small red"

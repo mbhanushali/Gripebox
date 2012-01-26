@@ -1,0 +1,63 @@
+.widget-gripe-video{
+  background: #ccc;  margin: 0 0 6px 0; padding:10px 20px 2px 20px; overflow: hidden; 
+  -webkit-border-radius: 10px 0 10px 10px;
+  -moz-border-radius:  10px 0 10px 10px;
+  border-radius: 10px 0 10px 10px;
+  display: none;
+}
+.widget-gripe-video ul {
+  width: 565px;
+}
+.widget-gripe-video ul li {
+  display: block; width: 100px; height: 106px; position: relative; margin:0 38px 12px 0;
+  float:left; overflow: hidden;
+}
+.widget-gripe-video ul li a:hover {
+  text-decoration: none;
+}
+.widget-gripe-video ul li img {
+  display: block; width: 100px; height: 60px; background: #fff; position:relative;
+}
+.widget-gripe-video ul li em {
+  font-size: 13px; font-weight: bold; text-shadow:0 1px 1px #333; color: #fff; position:absolute;
+  z-index:2; right:4px; top:44px;
+}
+.widget-gripe-video ul li span {
+  font-size: 13px; font-weight: bold; color: #666; display: block; margin: 5px 0 0 0;
+}
+.widget-gripe-video ul li em.ovr {
+  position: absolute; height:10px; background: url(/assets/bg-text-video.png) repeat-x; width: 100px;
+  top:102px; right:0px;
+}
+
+.popup-video {
+  width:640px; height:auto; min-height:440px;
+  display: block; z-index:3; 
+  margin:auto; position:fixed; 
+  top:120px; left:50%; margin-left:-350px; 
+  border:5px solid #fff; padding:0 40px;
+  overflow: hidden; background:#fff;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 2px 8px 5px 0px #2C2C2C;
+  -moz-box-shadow: 2px 8px 5px 0px #2C2C2C;
+  box-shadow: 2px 8px 5px 0px #2C2C2C;
+}
+.popup-video .btnClose {
+  float:right; margin: 2px 2px 0 0;
+  position: relative;
+  right: -40px;
+}
+.block-video-gripe-text {
+  color: #969696;
+  display: block;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px 0 5px;
+}
+.code-video  {
+  display: none;
+}

@@ -1,0 +1,76 @@
+.bl-popup
+  .popup-sign-link
+    .tabs-sign-link
+      .tabs-sign.active sign in
+      .tabs-register  register
+    .clear  
+    .content-sign-link{ :class => "red redbg l"}
+      .content-sign-link-bg
+        .tabs-block-sign.db
+          = render :partial => "application/popup_warning"   
+          = render :partial => "devise/sessions/new"
+        .tabs-block-register
+          = render :partial => "application/popup_warning"   
+          = render :partial => "devise/registrations/new"
+        .tabs-block-bethink  
+          .popup-warning-block
+            Enter an email and we'll send you your password.
+            %span
+          = render :partial => "devise/passwords/new"
+.bl-popup
+  .popup-video
+    %a.btnClose{:href => "#"}
+      %img{:src => "/assets/lightbox-btn-close.gif"}/
+    .clear
+    .block-video-gripe-display
+    .block-video-gripe-text
+- if params[:reset_password_token]
+  .bl-popup.db
+    .change-pass
+      .red.redbg   
+        .content-sign-link-bg
+          %h2 reset password
+          .popup-warning-block.nobg
+            Please enter your new password.
+            %span 
+          = render :partial => "devise/passwords/edit"
+
+- if notice == 'Welcome! You have signed up successfully.'
+  .bl-popup.db
+    .thank-you
+      .red.redbg   
+        .content-sign-link-bg
+          %h2
+            Thank You 
+            %br
+            &
+            %br
+            Welcome to Gripebox!
+          %h3 Now check your email for an account activation link, click and start griping!   
+          %a{ :class => "btn small red", :href => ""}   back to Gripebox
+
+- if notice == 'You have signed up successfully. However, we could not sign you in because your account is unconfirmed.'
+  .bl-popup.db
+    .thank-you
+      .red.redbg   
+        .content-sign-link-bg
+          %h2
+            Thank You 
+            %br
+            &
+            %br
+            Welcome to Gripebox!
+          %h3 Now check your email for an account activation link, click and start griping!   
+          %a{ :class => "btn small red", :href => ""}   back to Gripebox
+          
+.bl-popup
+  .popup-embed
+    .red.redbg       
+      %form{}
+        %div.embed-body
+        %div
+          %input{ :type => "button", :value => "ok", :class => "btn small red embed-ok off"}
+          %input{ :type => "button", :value => "cancel", :class => "btn small red embed-cancel ]"}
+        .clear  
+            
+               

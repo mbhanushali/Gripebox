@@ -1,0 +1,4 @@
+- gripes = @gripes
+- if gripes.present?
+  - gripes.each do |gripe|
+    = render :partial => "gripe", :locals => { :gripe => gripe }

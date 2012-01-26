@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title 
+      = @title
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      = render :partial => "application/header"
+      = render :partial => "application/alerts"  
+      #container
+        - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
+        .main{ :style => footer_image.present? ? "padding-bottom: 200px; background: url(#{footer_image.image(:original)}) no-repeat left bottom;" : nil }
+          #left
+            = render :partial => "left_column"
+          #center
+            = yield
+          #right  
+            = render :partial => "right_column"
+          .clear  
+      .clear     
+      #spacer
+    = render :partial => "application/footer"
+    = render :partial => "application/popup"
+    %script{:type => "text/javascript", :src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ea19fa823bbfeaf"}    
