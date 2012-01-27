@@ -1,4 +1,5 @@
 class ErrorPagesController < ApplicationController
-	def 404
+	def index
+	  render :layout => false, :status => :not_found
 	end
 end

@@ -1,5 +1,6 @@
 Gripebox::Application.routes.draw do
 
+  match '/error/404' => 'error_pages#index'
   match '/facebook/access_token' => 'account#facebook'
 
   match 'filter_gripe_view' => 'home#filter_gripe_view'
