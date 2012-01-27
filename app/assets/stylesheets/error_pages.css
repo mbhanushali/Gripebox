@@ -1,0 +1,35 @@
+html,body
+{
+	height:100%;
+}
+body {
+	line-height: 1;
+	background-color: #911917;
+	background-image:url(/assets/images/404-image/bg.jpg);
+	background-position:center top;
+	background-repeat:no-repeat;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	margin:0px;
+}
+#maindiv
+{
+	width:1024px;
+	height:500px;
+	margin:auto;	
+}
+#guy
+{
+	float:right;
+	margin-right:240px;
+	margin-top:100px;
+}
+#textword
+{
+	float:left;
+	margin-top:160px;
+	margin-left:70px;
+	
+	
+	
+}

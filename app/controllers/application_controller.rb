@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   #http_basic_authenticate_with :name => "dev", :password => "dev"
 
+	unless  ActionController::Base.consider_all_requests_local
+	  rescue_from Exception, :with => :render_404
+	end
+
   def call_rake(task, options = {})
     options[:rails_env] ||= Rails.env
     args = options.map { |n, v| "#{n.to_s.upcase}='#{v}'" }
@@ -15,4 +19,9 @@ class ApplicationController < ActionController::Base
     def choose_layout
       (request.xhr?) ? nil : 'application'
     end  
+
+	  def render_404
+	    render :template => 'error_pages/404', :layout => false, :status => :not_found
+	  end
+
 end
