@@ -1,6 +1,3 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .adhere {
 background: #695858;
 height: 150px;
@@ -20,7 +17,7 @@ width: 180px;
 color: white;
 font-weight: bold;
 float: left;
-margin: 20px 0 0 10px;
+margin: 0px 0 0 10px;
 text-align: center;
 padding-top: 150px;
 }

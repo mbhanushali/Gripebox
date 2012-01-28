@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title 
+      = (@page.title.blank?)?():(@page.title)
+    == <meta name="description" content="#{(@page.meta_description.blank?)?():(@page.meta_description)}" />
+    == <meta name="keywords" content="#{(@page.meta_keywords.blank?)?():(@page.meta_keywords)}" />
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      = render :partial => "application/header"
+      = render :partial => "application/alerts"
+      #container
+        - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
+        .main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url('/assets/footer/banner.png') no-repeat left bottom;" : nil }
+          #left
+            = render :partial => "left_column_cms"
+          #center
+            = yield
+          #right  
+            = render :partial => "right_column_cms"
+          .clear
+      .clear     
+      #spacer
+    = render :partial => "application/footer"
+    = render :partial => "application/popup"
+    %script{:type => "text/javascript", :src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ea19fa823bbfeaf"}
