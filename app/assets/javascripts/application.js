@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./global/.
+//= require ckeditor/ckeditor
 
 function countGripes(){
 

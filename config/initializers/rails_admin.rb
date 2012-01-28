@@ -22,6 +22,27 @@ RailsAdmin.config do |config|
         label "SEO friendly URL"
       end
     end
+    create do
+      field :title, :string
+      field :body, :text do
+        ckeditor {true}
+      end
+      field :position, :integer
+      field :custom_title, :string
+      field :meta_description, :string
+      field :meta_keywords, :string
+    end
+    edit do
+      field :title, :string
+      field :body, :text do
+        ckeditor {true}
+      end
+      field :slug, :string
+      field :position, :integer
+      field :custom_title, :string
+      field :meta_description, :string
+      field :meta_keywords, :string
+    end
   end
 
   #  ==> Authentication (before_filter)
