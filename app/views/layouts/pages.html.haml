@@ -12,10 +12,10 @@
     #wrapper
       = render :partial => "application/header"
       = render :partial => "application/alerts"
-      #container
+      #cms_container
         - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
-        .main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url('/assets/footer/banner.png') no-repeat left bottom;" : nil }
-          #left
+        .cms_main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url('/assets/footer/banner.png') no-repeat left bottom;background-color:white;" : "background-color:white;" }
+          #cms_left
             = render :partial => "left_column_cms"
           #center
             = yield

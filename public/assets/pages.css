@@ -49,3 +49,17 @@ color: #0098DB;
 text-decoration: none;
 cursor: auto;
 }
+#cms_container {
+margin: 0px;
+background: #F2F2F2;
+}
+.cms_main{
+background-color:white;
+width: 1028px;
+margin: 0 auto;
+}
+#cms_left{
+width: 180px;
+float: left;
+margin: 0 0 0 15px;
+}
