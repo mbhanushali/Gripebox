@@ -1,5 +1,9 @@
 Gripebox::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
+  resources :pages
+
   match '/error/404' => 'error_pages#index'
   match '/facebook/access_token' => 'account#facebook'
 

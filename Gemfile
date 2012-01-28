@@ -77,3 +77,7 @@ gem 'thinking-sphinx', '2.0.10'
 gem "thin"
 
 gem "grackle"
+
+gem "friendly_id", "~> 4.0.0"
+
+gem "ckeditor", "3.7.0.rc2"

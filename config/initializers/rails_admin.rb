@@ -14,6 +14,15 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
 
   config.main_app_name { ['Gripebox', 'Admin'] } # auto-generated
+  
+  config.model Page do
+    list do
+      field :title
+      field :slug do
+        label "SEO friendly URL"
+      end
+    end
+  end
 
   #  ==> Authentication (before_filter)
   # This is run inside the controller instance so you can setup any authentication you need to.
