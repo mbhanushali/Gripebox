@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   #http_basic_authenticate_with :name => "dev", :password => "dev"
 
   unless config.consider_all_requests_local
-    rescue_from Exception, :with => :render_404
+    rescue_from Exception, :with => :render_404 
   end
 
   def call_rake(task, options = {})
