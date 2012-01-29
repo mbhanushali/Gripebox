@@ -18,6 +18,7 @@ RailsAdmin.config do |config|
   config.model Page do
     list do
       field :title
+      field :position
       field :slug do
         label "SEO friendly URL"
       end
@@ -27,10 +28,13 @@ RailsAdmin.config do |config|
       field :body, :text do
         ckeditor {true}
       end
-      field :position, :integer
       field :custom_title, :string
       field :meta_description, :string
       field :meta_keywords, :string
+      field :position, :integer
+      field :show_link_in_footer, :boolean
+      field :make_no_follow, :boolean
+      field :make_no_index, :boolean
     end
     edit do
       field :title, :string
@@ -38,10 +42,13 @@ RailsAdmin.config do |config|
         ckeditor {true}
       end
       field :slug, :string
-      field :position, :integer
       field :custom_title, :string
       field :meta_description, :string
       field :meta_keywords, :string
+      field :position, :integer
+      field :show_link_in_footer, :boolean
+      field :make_no_follow, :boolean
+      field :make_no_index, :boolean
     end
   end
 
