@@ -2,7 +2,7 @@
 %html
   %head
     %title 
-      = (@page.title.blank?)?():(@page.title)
+      = (@page.custom_title.blank?)?(@page.title):(@page.custom_title)
     == <meta name="description" content="#{(@page.meta_description.blank?)?():(@page.meta_description)}" />
     == <meta name="keywords" content="#{(@page.meta_keywords.blank?)?():(@page.meta_keywords)}" />
     = raw(robot_meta_tag(@page.make_no_follow, @page.make_no_index))
