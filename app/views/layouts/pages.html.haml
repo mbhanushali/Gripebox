@@ -6,7 +6,7 @@
     == <meta name="description" content="#{(@page.meta_description.blank?)?():(@page.meta_description)}" />
     == <meta name="keywords" content="#{(@page.meta_keywords.blank?)?():(@page.meta_keywords)}" />
     = raw(robot_meta_tag(@page.make_no_follow, @page.make_no_index))
-    = stylesheet_link_tag    "application"
+    = stylesheet_link_tag    "application", "pages"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
@@ -15,7 +15,7 @@
       = render :partial => "application/alerts"
       #cms_container
         - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
-        .cms_main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url('/assets/footer/banner.png') no-repeat left bottom;background-color:white;" : "background-color:white;" }
+        .cms_main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url(#{footer_image.image(:original)}) no-repeat left bottom;background-color:white;" : "background-color:white;" }
           #cms_left
             = render :partial => "left_column_cms"
           #center
