@@ -15,6 +15,16 @@ RailsAdmin.config do |config|
 
   config.main_app_name { ['Gripebox', 'Admin'] } # auto-generated
   
+  config.model Gripe do
+    list do
+      field :id
+      field :title
+      field :comments_count
+      field :comm_count
+      field :is_flag
+    end
+  end
+  
   config.model Page do
     list do
       field :title
