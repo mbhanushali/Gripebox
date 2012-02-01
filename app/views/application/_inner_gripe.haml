@@ -16,7 +16,7 @@
     %span
       power
     - unless checkAuthorGripe?(gripe.user_id)
-      %div{ :style => "margin-top:2px;cursor:pointer;"}
+      %div{ :style => "margin-top:4px;cursor:pointer;"}
         %div{:class => "popup-griper-subscriptions", :id => "popup-"+gripe.id.to_s, :style => gripe.show_flag.blank? ? "display:none;left:508px;top:-31px;" : "display:block;left:508px;top:-31px;" }
           %span{ :style => "color:white; font-weight:bold;padding: 10px; text-align: center; display: inline-block;"}
             We'll review this Gripe immediately.

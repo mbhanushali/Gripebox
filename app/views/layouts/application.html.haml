@@ -12,7 +12,7 @@
       = render :partial => "application/alerts"  
       #container
         - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
-        .main{ :style => footer_image.present? ? "padding-bottom: 200px; background: url(#{footer_image.image(:original)}) no-repeat left bottom;" : nil }
+        .main{ :style => footer_image.present? ? "padding-bottom: 200px; background: url(#{footer_image.image(:original)}) no-repeat center bottom;" : nil }
           #left
             = render :partial => "left_column"
           #center
