@@ -28,6 +28,9 @@ $(document).ready(function() {
         var $parent_gripe_id = $gripe_box.attr("id");
         $.post("/flag-gripe",{ id: $parent_gripe_id }, function(data){
             $gripe_box.html(data);
+            setTimeout(function() {
+                $("#popup-"+$parent_gripe_id).fadeOut('fast');
+            }, 3000);
         });
     } );
 });
