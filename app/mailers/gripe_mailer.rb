@@ -7,4 +7,10 @@ class GripeMailer < ActionMailer::Base
     @user = User.first
     mail(:to => @user.email, :subject => "Flagged Gripe")
   end
+  
+  def gripe_owner_vialation_notificaiton(gripe)
+    @gripe = gripe
+    @user = gripe.user
+    mail(:to => @user.email, :subject => "Gripe Violation and Deletion")
+  end
 end
