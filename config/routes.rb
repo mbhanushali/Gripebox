@@ -3,7 +3,8 @@ Gripebox::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
   resources :pages
-
+  match '/flag-gripe' => 'flag_gripes#update'
+  
   match '/error/404' => 'error_pages#index'
   match '/facebook/access_token' => 'account#facebook'
 

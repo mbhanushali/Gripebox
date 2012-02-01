@@ -1,6 +1,8 @@
 class Gripe < ActiveRecord::Base
   belongs_to :user
 
+  attr_accessor :show_flag
+  
   acts_as_taggable
 	acts_as_commentable
 

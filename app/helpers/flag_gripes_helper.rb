@@ -1,0 +1,2 @@
+module FlagGripesHelper
+end

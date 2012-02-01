@@ -1,0 +1,181 @@
+= image_tag("/assets/img/i1.png", :class => "dn")
+.gripe-topic
+  .box-img
+    - if gripe.user.avatar.present?
+      = image_tag(gripe.user.avatar(:thumb), :alt => gripe.user.username)
+    - else
+      = image_tag("/assets/img/i1.png", :alt => gripe.user.username)
+  .box-title>= truncate(gripe.title, :length => 88, :omnission => '...')
+  .box-power
+    - if gripe.power.to_i > 0    
+      %strong.v-green
+        = gripe.power.abs
+    - else
+      %strong.v-red
+        = gripe.power.abs
+    %span
+      power
+    %div{ :style => "margin-top:2px;cursor:pointer;"}
+      .popup-griper-subscriptions{ :style => gripe.show_flag.blank? ? "display:none;left:508px;top:-31px;" : "display:block;left:508px;top:-31px;" }
+        %span{ :style => "color:white; font-weight:bold;padding: 10px; text-align: center; display: inline-block;"}
+          We'll review this Gripe immediately.
+      - if gripe.is_flag
+        = image_tag("/assets/img/flag_sel.png")
+      -else
+        %a.flag
+          = image_tag("/assets/img/flag.png")
+  .clear  
+- if checkAuthorGripe?(gripe.user_id)    
+  .btn-gripe-update
+    Update
+  .clear
+  .block-gripe-update
+    .delete-gripe
+      delete gripe
+    .block-edit-gripe
+      .edit-text.lb text
+      .edit-photo photo
+      .edit-video.rb video
+
+.gripe-list-content
+  .gripe-content{ :style => "display:block"}
+    .box-content-info
+      %span by:
+      %a{ :href => "#"}>= gripe.user.username
+      %span 
+        posted 
+        = gripe.created_at.strftime("%m/%d/%y")
+      %span.views
+        %em>= gripe.comments_count
+        views
+    .clear
+    .box-content
+      /%span.expand
+      /  more 
+      /  %em ► 
+      .gripe-preview>= truncate(gripe.overview, :length => 63, :omnission => '...')
+      .gripe-preview-all
+        %p>= gripe.overview
+        
+  - gripe.gripe_text.order('created_at ASC').each do |update|
+    .gripe-content
+      .box-content-info
+        %span.update-text
+          Update!
+        %span 
+          posted 
+          = update.created_at.strftime("%m/%d/%y")
+      .clear
+      .box-content
+        .gripe-preview>= update.content
+        .gripe-preview-all
+          %p>= update.content      
+    .clear
+
+  %span.expand.show
+    more 
+    %em ►        
+  .gripe-expand.no
+    .block-gripe-expand
+      .like like
+      = render :partial => "widget_share", :locals => { :gripe => gripe, :title => gripe.title }
+    .clear   
+%form{ :class => "form-edit-gripe", :gripe_id => gripe.id, :method => "post", :action=> "/gripes"}
+  %input{ :type => "hidden", :class => "ResultArray", :name => "arrayFiles"}  
+  .list-edit-content.block
+  .list-edit-image.block
+  
+    - gripe.file_gripe.where('mimetype = ? OR mimetype = ?','image','embed_image').each do |file|    
+      .block-edit-image
+        .bl-img
+          - if file.mimetype == 'image'
+            %img{ :src => "/system/images/" + file.file_upload_id.to_s + "/medium/" + file.file_upload.image_file_name, :original => file.file_upload_id.to_s, :alt => file.overview }/
+          - else
+            %img{ :src => file.url, :embed => "img", :alt => file.overview }/  
+        .bl-content
+          %textarea.tips.ed-text{ :default => "Add are description."}
+            = file.overview
+          .bl-delete x delete
+          .clear
+        .clear
+
+  .list-edit-video.block
+
+    - gripe.file_gripe.where('mimetype = ? OR mimetype = ?','video','embed_video').each do |file|    
+      .block-edit-image
+        .bl-img
+          - if file.mimetype == 'video'
+            %img{ :src => "/system/sources/" + file.file_upload_id.to_s + "/original/" + file.file_upload_id.to_s + ".jpg", :original => file.file_upload_id.to_s, :alt => file.overview }/
+          - else
+            %img{ :src => "/assets/ico/embed_video_tmb.png", :embed => "video", :alt => file.overview }/
+        .bl-content
+          %textarea.tips.ed-text{ :default => "Add are description."}
+            = file.overview
+          .bl-delete x delete
+          .clear
+        .clear
+
+  .block-form-action
+    .save-sett{ :gripe_id => gripe.id } save settings
+    .cancel cancel
+    .clear
+
+
+
+
+            
+.gripe-details
+  .box-comments
+    %span
+      comments (
+      %em>= gripe.comment_threads.count.to_s
+      )
+  .box-rate
+    - all = gripe.rate.count
+    - red = gripe.rate.where('value = ?', 1).count
+    - green = gripe.rate.where('value = ?', 0).count
+    - if all != 0 
+      - red_percent = red.to_f/all*100
+      - green_percent = green.to_f/all*100
+
+    - red == 0 ? green > 0 ? green_percent = 100 : green_percent = 50 : nil
+    - green == 0 ? red > 0 ? red_percent = 100 : red_percent = 50 : nil
+    .negative
+    .rate-panel{ :id => "rate-panel-" + gripe.id.to_s }
+      .red{ :style => "width: " + red_percent.to_i.to_s + "%;" }>= red
+      .green{ :style => "width: " + green_percent.to_i.to_s + "%;" }>= green
+    .positive
+  - if user_signed_in?
+    - if gripe.subscription.present?
+      %div{ :gripe_id => gripe.id, :class => gripe.subscription.last.user_id == current_user.id ? "box-vote active" : "box-vote" }
+        .popup-griper-subscriptions
+          %span
+    - else
+      %div{ :gripe_id => gripe.id, :class => "box-vote" }
+        .popup-griper-subscriptions
+          %span            
+  - else     
+    %div{ :gripe_id => gripe.id, :class => "box-vote" }
+      .popup-griper-subscriptions
+        %span      
+  .box-icons
+    %em
+      .ico-img.none
+        %span.box.green>= gripe.file_gripe.where('mimetype = ? OR mimetype = ?','image','embed_image').count
+    %em
+      .ico-video
+        %span.box.green>= gripe.file_gripe.where('mimetype = ? OR mimetype = ?','video','embed_video').count
+  .clear
+= render :partial => "application/widget_gripe_video", :locals => { :gripe => gripe }  
+= render :partial => "application/widget_gripe_pics", :locals => { :gripe => gripe }
+.gripe-list-comment
+  - if user_signed_in?
+    %form{ :class => "form-new-comment", :gripe_id => gripe.id }
+      %textarea{ :class => "tips", :default => "Don’t hold back.  Comment away!"}
+      %input{ :type => "submit", :value => "post comment"}
+      .clear
+  - gripe.root_comments.order("created_at DESC").each do |comment|    
+    = render :partial => "comment", :locals => { :gripe => gripe, :comment => comment, :reply => false }
+  /= render :partial => "comment", :locals => { :gripe => gripe, :reply => true }
+  .load-next-comment-ico   
+  //.load-next-comment load next 15 comments
