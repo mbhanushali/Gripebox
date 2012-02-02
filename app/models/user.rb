@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   has_many :subscription, :dependent => :destroy
   has_many :comment, :dependent => :destroy
   has_many :email_me, :dependent => :destroy
+  has_many :msgs, :dependent => :destroy
 
   has_one :facebook_activity
 
@@ -29,6 +30,10 @@ class User < ActiveRecord::Base
 
   def set_default_birthday
     self.birthday = "1980-01-01"
+  end
+  
+  def count_unread_messages
+    msgs.unread_messages.count
   end
 
   # Social auth from OmniAuth

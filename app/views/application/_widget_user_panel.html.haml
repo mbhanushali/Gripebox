@@ -1,6 +1,9 @@
 .widget-user-panel
   %ul
     %li{ :class => "notifications " + (params[:controller] == 'notifications' ? "active" : nil).to_s }
+      - if current_user.count_unread_messages > 0
+        %span{ :class => "notification_unread" }
+          = current_user.count_unread_messages
       = link_to "notifications", notifications_path
     %li{ :class => "my_gripes " + (params[:action] == 'mygripes' ? "active" : nil).to_s }
       %a{ :href => mygripes_path } my gripes

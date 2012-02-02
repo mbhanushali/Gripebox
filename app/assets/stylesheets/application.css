@@ -163,3 +163,4 @@ html, body {margin: 0;height: 100%;}
 textarea { resize: none; }
 
 #panel-for-facebook-posting { line-height: 15px; }
+.notification_unread{ position: absolute;color: white;font-size: 11px;font-weight: bold;margin-top: 3px;margin-left: 45px;background-color: #68BEDE;background-repeat: no-repeat;border: 2px solid white;border-radius: 6px 6px 6px 6px;padding: 1px 5px;-webkit-border-radius: 6px;-moz-border-radius: 6px;-webkit-box-shadow: -5px 6px 4px -6px #000000;-moz-box-shadow: -5px 6px 4px -6px #000000;box-shadow: -5px 6px 4px -6px #000000; }
