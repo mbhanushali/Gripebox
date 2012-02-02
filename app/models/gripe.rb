@@ -18,6 +18,7 @@ class Gripe < ActiveRecord::Base
   has_many :gripe_text, :dependent => :destroy
 
   has_many :file_gripe, :dependent => :destroy
+  has_many :activities, :dependent => :destroy
 
   define_index do
     # fields

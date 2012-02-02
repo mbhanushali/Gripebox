@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
   belongs_to :gripe
-  has_many :msg
+  has_many :msg, :dependent => :destroy
 
   after_create :set_latest_activity_gripe
 
