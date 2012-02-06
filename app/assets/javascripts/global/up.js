@@ -137,7 +137,7 @@ function get_embed_details(url){
         embed_success = true;
         $(".gripe_master_list .block-edit-image:last-child").remove();
         $(".gripe_master_list").append(file_html);
-        $(".block-edit-image:last .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+        $(".block-edit-image:last .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
         $("#new_gripe .btn-gripe").removeClass("submitNo");
         var embed_image = $("div.block-edit-image, rootOfList").last();
         $(embed_image).find("textarea").val("");
@@ -149,14 +149,6 @@ function get_embed_details(url){
       console.log("The following error occured: " + textStatus, errorThrown);
     },
     complete: function(){
-//      if(file_type == 'photo'){
-//        $(".fileImg").children("input").val(image_url);
-//        alert('2');
-//        $(".gripe_master .file-upload-source").trigger("change");
-//      }
-//      else if(file_type == 'video'){
-//        alert('3');
-//      }
     }
     
   });
