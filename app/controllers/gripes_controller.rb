@@ -318,12 +318,20 @@ class GripesController < ApplicationController
 
         if params['arrayFiles']
           params['arrayFiles'].split(':::').each do |media|
-            @media = FileGripe.new
-            @media.gripe_id = Gripe.where('user_id = ?',current_user.id).last.id
-            @media.file_upload_id = media.split('::').first
-            @media.overview = media.split('::').last
-            @media.mimetype = FileUpload.find(media.split('::').first).source.present? ? 'video' : 'image' 
-            @media.save
+            @file_type = media.split('::')[1]
+            if @file_type == 'undefined'
+              @media = FileGripe.new
+              @media.gripe_id = @gripe.id
+              @media.file_upload_id = media.split('::').first
+              @media.overview = media.split('::').last
+              @media.mimetype = FileUpload.find(media.split('::').first).source.present? ? 'video' : 'image' 
+              @media.save
+            else
+              @media = FileGripe.find(media.split('::').first.to_s)
+              @media.gripe_id = @gripe.id
+              @media.overview = media.split('::').last
+              @media.save
+            end
           end  
         end
 

@@ -137,6 +137,8 @@ function get_embed_details(url){
         embed_success = true;
         $(".gripe_master_list .block-edit-image:last-child").remove();
         $(".gripe_master_list").append(file_html);
+        $(".block-edit-image:last .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+        $("#new_gripe .btn-gripe").removeClass("submitNo");
         var embed_image = $("div.block-edit-image, rootOfList").last();
         $(embed_image).find("textarea").val("");
         $(embed_image).find(".span_val").show();
@@ -282,8 +284,9 @@ function errorStart() {
            index = 1; 
       $(".block-edit-image img").each(function(){
           var id = $(this).attr('original'),
+              file_type = $(this).attr('embed'),
               txt = $(this).parent().parent().find(".ed-text").val(),
-              RowValue = id + '::' + txt + ':::';
+              RowValue = id + '::' + file_type + '::' + txt + ':::';
               ResultArray = ResultArray + RowValue.toString();
 
         $("#new_gripe .ResultArray").val(ResultArray.toString());

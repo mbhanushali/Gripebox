@@ -12,7 +12,7 @@ class EmbedDetailsController < ApplicationController
       @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
       file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @src)
       respond_to do |format|
-        format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" class="newI"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :file_gripe_id => file_gripe.id  }}
+        format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :id => file_gripe.id  }}
       end
     end
   end
