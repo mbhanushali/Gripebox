@@ -83,3 +83,5 @@ gem "passenger"
 gem "friendly_id", "~> 4.0.0"
 
 gem "ckeditor", "3.7.0.rc2"
+
+gem "ruby-oembed"

@@ -31,6 +31,8 @@
   = form.file_field :image, :class => "file-upload-source", :status => "img"
   = form.hidden_field :user_id, :value => current_user.id
   = form.file_field :source, :class => "file-upload-source", :status => "video"
+  .embed
+    = image_tag "/assets/code.png", :id => "embed-image"
 
   = form.submit  :class => "file-upload-submit"
   %iframe{ :id => "file-upload-iframe", :name => "file-upload-iframe", :src => "about:blank", :frameborder => "0", :border => "0", :width => "500px", :heigth => "300px", :onload => "parseIframe();"}  
