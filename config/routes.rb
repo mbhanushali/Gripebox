@@ -4,7 +4,7 @@ Gripebox::Application.routes.draw do
 
   resources :pages
   match '/flag-gripe' => 'flag_gripes#update'
-  
+  match '/embed_details' => 'embed_details#create'
   match '/error/404' => 'error_pages#index'
   match '/facebook/access_token' => 'account#facebook'
 
