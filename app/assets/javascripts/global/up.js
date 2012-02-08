@@ -122,7 +122,7 @@ function openFile(file) {
 
 };
 
-function get_embed_details(url){
+function get_embed_details(url, gripe_file){
   $.ajax({
     url: '/embed_details.js',
     type: 'POST',
@@ -139,18 +139,16 @@ function get_embed_details(url){
         image_url = data.src;
         file_html = data.html;
         embed_success = true;
-        $(".gripe_master_list .block-edit-image:last-child").remove();
         $(".gripe_master_list").append(file_html);
-        if($(".gripe_master_list .block-edit-image").length > 1){
-          $(".block-edit-image").removeClass("nobg");
-          $(".block-edit-image:last").addClass("nobg");
-        }
         $(".block-edit-image:last .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
+        $("div.block-edit-image").each(function(){ 
+          $(this).removeClass("nobg"); });
         $("#new_gripe .btn-gripe").removeClass("submitNo");
         var embed_image = $("div.block-edit-image, rootOfList").last();
         $(embed_image).find("textarea").val("");
         $(embed_image).find(".span_val").show();
-        
+        $(embed_image).addClass("nobg");
+        $(gripe_file).parent().parent().remove();
       }
     },
     error: function(jqXHR, textStatus, errorThrown){
@@ -175,7 +173,24 @@ $(document).ready(function() {
   $(".embed").click(function(){
     embed_gripes();
   });
+  
+  $(".ed-embed-text").live("keypress", function(e){
+    var ambed_value = $(this).val();
+    $(this).prev(".span_val").hide();
+  });
 
+  $(".ed-text").live("keypress", function(e){
+    var value = $(this).val();
+    $(this).prev(".span_val").hide();
+  });
+
+  $(".ed-text").live("keyup", function(e){
+    var value = $(this).val();
+    if(ambed_value == ""){
+      $(this).prev(".span_val").show();
+    }
+  });
+  
   $(".ed-embed-text").live("keyup", function(e){
     var ambed_value = $(this).val();
     var src_value = '';
@@ -193,7 +208,7 @@ $(document).ready(function() {
         src_value = ambed_value;
         src_type = 'url';
       }
-      get_embed_details(src_value);      
+      var embed_details = get_embed_details(src_value, $(this));
     }
   });
   
