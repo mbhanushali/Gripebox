@@ -48,11 +48,11 @@ class FileUpload < ActiveRecord::Base
         duration = hours.to_i*3600 + mins.to_i*60 + seconds.to_i
       end
 
-      if duration < 100
-        @random1 = Random.rand(1..duration).to_s
-      else
+#      if duration < 100
+#        @random1 = Random.rand(1..duration).to_s
+#      else
         @random1 = Random.rand(4..30).to_s
-      end
+#      end
 
       system("ffmpeg  -itsoffset -" + @random1 + " -i " + @tmp_path_file+ " -vcodec mjpeg -vframes 1 -an -f rawvideo -s 55x55 " + @tmp_path + self.id.to_s + ".jpg")
     end  
