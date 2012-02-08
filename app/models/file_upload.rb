@@ -54,7 +54,7 @@ class FileUpload < ActiveRecord::Base
         @random1 = Random.rand(4..30).to_s
 #      end
 
-      system("ffmpeg  -itsoffset -" + @random1 + " -i " + @tmp_path_file+ " -vcodec mjpeg -vframes 1 -an -f rawvideo -s 55x55 " + @tmp_path + self.id.to_s + ".jpg")
+      system("/opt/local/bin/ffmpeg  -itsoffset -" + @random1 + " -i " + @tmp_path_file+ " -vcodec mjpeg -vframes 1 -an -f rawvideo -s 55x55 " + @tmp_path + self.id.to_s + ".jpg")
     end  
   end
 
