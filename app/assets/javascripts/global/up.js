@@ -193,23 +193,25 @@ $(document).ready(function() {
   
   $(".ed-embed-text").live("keyup", function(e){
     var ambed_value = $(this).val();
-    var src_value = '';
-    var src_type = '';
-    if(ambed_value == ""){
-      $(this).prev(".span_val").show();
-    }
-    else {
-      $(this).prev(".span_val").hide();
-      if(ambed_value.toLowerCase().indexOf("src=") > 0){
-        src_value = $(ambed_value).attr("src");
-        src_type = 'embed';
+    setTimeout(function(){
+      var src_value = '';
+      var src_type = '';
+      if(ambed_value == ""){
+        $(this).prev(".span_val").show();
       }
-      else{
-        src_value = ambed_value;
-        src_type = 'url';
+      else {
+        $(this).prev(".span_val").hide();
+        if(ambed_value.toLowerCase().indexOf("src=") > 0){
+          src_value = $(ambed_value).attr("src");
+          src_type = 'embed';
+        }
+        else{
+          src_value = ambed_value;
+          src_type = 'url';
+        }
+        var embed_details = get_embed_details(src_value, $(this));
       }
-      var embed_details = get_embed_details(src_value, $(this));
-    }
+    }, 500);
   });
   
   $(".span_val").live("click", function(e){

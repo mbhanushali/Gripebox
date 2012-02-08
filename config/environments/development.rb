@@ -30,7 +30,7 @@ Gripebox::Application.configure do
 
   config.assets.initialize_on_precompile = false  
 
-  config.action_mailer.default_url_options = { :host => 'gripebox.dev' }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
