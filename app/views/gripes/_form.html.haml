@@ -26,14 +26,14 @@
   .clear
   %textarea.gripe_master_list_error
 
+%span.gripe_buttons_container
+  = form_for :file, :url => '/uploader', :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form| 
+    = form.file_field :image, :class => "file-upload-source", :status => "img"
+    = form.hidden_field :user_id, :value => current_user.id
+    = form.file_field :source, :class => "file-upload-source", :status => "video"
+    .embed
+      = image_tag "/assets/code.png", :id => "embed-image"
 
-= form_for :file, :url => '/uploader', :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form| 
-  = form.file_field :image, :class => "file-upload-source", :status => "img"
-  = form.hidden_field :user_id, :value => current_user.id
-  = form.file_field :source, :class => "file-upload-source", :status => "video"
-  .embed
-    = image_tag "/assets/code.png", :id => "embed-image"
-
-  = form.submit  :class => "file-upload-submit"
-  %iframe{ :id => "file-upload-iframe", :name => "file-upload-iframe", :src => "about:blank", :frameborder => "0", :border => "0", :width => "500px", :heigth => "300px", :onload => "parseIframe();"}  
+    = form.submit  :class => "file-upload-submit"
+    %iframe{ :id => "file-upload-iframe", :name => "file-upload-iframe", :src => "about:blank", :frameborder => "0", :border => "0", :width => "500px", :heigth => "300px", :onload => "parseIframe();"}  
 .gripe_master_list
