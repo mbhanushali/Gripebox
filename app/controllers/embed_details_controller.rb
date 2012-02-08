@@ -4,7 +4,12 @@ class EmbedDetailsController < ApplicationController
     @url = params[:embed_url]
     @provider = get_provider_name(@url)
     resource = get_resource(@provider,@url)
-    if resource.video?
+    if resource == "photo"
+      file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @url)
+      respond_to do |format|
+        format.js { render :json => {:type => "photo", :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @url +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @url, :id => file_gripe.id  }}
+      end      
+    elsif resource.video?
       respond_to do |format|
         format.js { render :json => {:type => resource.type, :thumbnail_url => resource.thumbnail_url, :html => resource.html}}
       end
@@ -12,7 +17,7 @@ class EmbedDetailsController < ApplicationController
       @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
       file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @src)
       respond_to do |format|
-        format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :id => file_gripe.id  }}
+        format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :id => file_gripe.id  }}
       end
     end
   end
@@ -20,7 +25,7 @@ class EmbedDetailsController < ApplicationController
   private
   def get_provider_name(url)
     @provider_name = ''
-    @providers = ["youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare","yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd","movieclips","23hq"]
+    @providers = ["youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare","yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd","movieclips","23hq","jpg","png","gif","bmp","ico","jpeg"]
     @providers.each do |provider|
       if url.include?(provider)
         @provider_name = provider
@@ -71,6 +76,8 @@ class EmbedDetailsController < ApplicationController
       OEmbed::Providers::MovieClips.get(@url)
     when "23hq"
       OEmbed::Providers::TwentyThree.get(@url)
+    when "jpg","png","gif","bmp","ico","jpeg"
+      "photo"
     else
       ''
     end

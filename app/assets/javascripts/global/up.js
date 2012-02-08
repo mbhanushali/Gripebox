@@ -85,9 +85,13 @@ function fileUpload(status){
 }
 
 function embed_gripes(){
-   var embed_gripes = '<div class="block-edit-image"><div class="embed-text">embed</div><div class="bl-content"><span class="span_val" style="display: none; ">Paste your link here.</span><textarea class="tips ed-embed-text" default="Paste your link here." name="embed_text"></textarea></div><span class="gray_embed"><img alt="Gray_arrows" src="/assets/gray_arrows.png"></span><div class="bl-content" style="margin-left: 22px;width:448px;"><div class="bl-loading"></div><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>';
+   var embed_gripes = '<div class="block-edit-image nobg"><div class="embed-text">embed</div><div class="bl-content"><span class="span_val" style="display: none; ">Paste your link here.</span><textarea class="tips ed-embed-text" default="Paste your link here." name="embed_text"></textarea></div><span class="gray_embed"><img alt="Gray_arrows" src="/assets/gray_arrows.png"></span><div class="bl-content" style="margin-left: 22px;width:448px;"><div class="bl-loading"></div><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>';
    $(".gripe_master_list").append(embed_gripes);
    var $embed_div = $("div.block-edit-image, rootOfList").last();
+   if($(".gripe_master_list .block-edit-image").length > 1){
+     $(".block-edit-image").removeClass("nobg");
+     $(".block-edit-image:last").addClass("nobg");
+   }
    ($embed_div).find("textarea").val("");
    ($embed_div).find(".span_val").show();
 }
@@ -137,6 +141,10 @@ function get_embed_details(url){
         embed_success = true;
         $(".gripe_master_list .block-edit-image:last-child").remove();
         $(".gripe_master_list").append(file_html);
+        if($(".gripe_master_list .block-edit-image").length > 1){
+          $(".block-edit-image").removeClass("nobg");
+          $(".block-edit-image:last").addClass("nobg");
+        }
         $(".block-edit-image:last .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
         $("#new_gripe .btn-gripe").removeClass("submitNo");
         var embed_image = $("div.block-edit-image, rootOfList").last();
