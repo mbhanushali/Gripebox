@@ -189,7 +189,7 @@ $(document).ready(function() {
 
   $(".ed-text").live("keyup", function(e){
     var value = $(this).val();
-    if(ambed_value == ""){
+    if(value == ""){
       $(this).prev(".span_val").show();
     }
   });
