@@ -69,7 +69,7 @@ function fileUpload(status){
     
     var block_upload = '<div class="block-edit-image"><div class="bl-img"><img src="/assets/loading.gif" alt=""></div><div class="bl-content"><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-loading">loading ...</div><div class="clear"></div></div><div class="clear"></div></div>';
    
-    $(".gripe_master_list").append(block_upload);
+    $(".gripe_master_list").prepend(block_upload);
     renderCheckboxAndInput();
     $(".block-edit-image").removeClass("nobg");
     $(".block-edit-image:last").addClass("nobg");
@@ -86,7 +86,7 @@ function fileUpload(status){
 
 function embed_gripes(){
    var embed_gripes = '<div class="block-edit-image nobg"><div class="embed-text">embed</div><div class="bl-content"><span class="span_val" style="display: none; ">Paste your link here.</span><textarea class="tips ed-embed-text" default="Paste your link here." name="embed_text"></textarea></div><span class="gray_embed"><img alt="Gray_arrows" src="/assets/gray_arrows.png"></span><div class="bl-content" style="margin-left: 22px;width:448px;"><div class="bl-loading"></div><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>';
-   $(".gripe_master_list").append(embed_gripes);
+   $(".gripe_master_list").prepend(embed_gripes);
    var $embed_div = $("div.block-edit-image, rootOfList").last();
    if($(".gripe_master_list .block-edit-image").length > 1){
      $(".block-edit-image").removeClass("nobg");
@@ -122,8 +122,8 @@ function openFile(file) {
 
 };
 
-function get_embed_details(url, gripe_file){
-  $.ajax({
+function get_embed_details(url,embed_gripe){
+  var xhr = $.ajax({
     url: '/embed_details.js',
     type: 'POST',
     dataType: 'JSON',
@@ -139,7 +139,7 @@ function get_embed_details(url, gripe_file){
         image_url = data.src;
         file_html = data.html;
         embed_success = true;
-        $(".gripe_master_list").append(file_html);
+        $(".gripe_master_list").prepend(file_html);
         $(".block-edit-image:last .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
@@ -148,16 +148,19 @@ function get_embed_details(url, gripe_file){
         $(embed_image).find("textarea").val("");
         $(embed_image).find(".span_val").show();
         $(embed_image).addClass("nobg");
-        $(gripe_file).parent().parent().remove();
+        $(embed_gripe).removeAttr("disabled");
+        $(embed_gripe).parent().parent().remove();        
       }
     },
     error: function(jqXHR, textStatus, errorThrown){
+      $(embed_gripe).removeAttr("disabled");
       console.log("The following error occured: " + textStatus, errorThrown);
     },
     complete: function(){
     }
     
   });
+
   return embed_success;
 }
 
@@ -193,6 +196,8 @@ $(document).ready(function() {
   
   $(".ed-embed-text").live("keyup", function(e){
     var ambed_value = $(this).val();
+    var ambed_gripe = $(this);
+    $(this).attr("disabled", "disabled");
     setTimeout(function(){
       var src_value = '';
       var src_type = '';
@@ -209,9 +214,9 @@ $(document).ready(function() {
           src_value = ambed_value;
           src_type = 'url';
         }
-        var embed_details = get_embed_details(src_value, $(this));
+        var embed_details = get_embed_details(src_value,ambed_gripe);
       }
-    }, 500);
+    }, 600);
   });
   
   $(".span_val").live("click", function(e){

@@ -8,7 +8,6 @@
 //= require jquery_ujs
 //= require_tree ./global/.
 //= require ckeditor/ckeditor
-
 function countGripes(){
 
   $(".result-griper-header").each(function(){
