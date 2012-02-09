@@ -10,8 +10,10 @@ class EmbedDetailsController < ApplicationController
         format.js { render :json => {:type => "photo", :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @url +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @url, :id => file_gripe.id  }}
       end      
     elsif resource.video?
+    	@src = resource.html.to_s
+    	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :url => @src)
       respond_to do |format|
-        format.js { render :json => {:type => resource.type, :thumbnail_url => resource.thumbnail_url, :html => resource.html}}
+        format.js { render :json => {:type => resource.type.to_s , :thumbnail_url => resource.thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + resource.thumbnail_url + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
       end
     elsif resource.photo?
       @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
