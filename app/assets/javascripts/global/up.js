@@ -134,12 +134,10 @@ function get_embed_details(url,embed_gripe){
         thumbnail_url = data.thumbnail_url;
         file_html = data.html;
         embed_success = true;
-        alert('1');
         $(".gripe_master_list").prepend(file_html);
         $(".block-edit-image:first .bl-img img").attr("src",data.thumbnail_url).attr("original",data.id).css({"margin":"0"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
-alert('1');
         $("#new_gripe .btn-gripe").removeClass("submitNo");
         var embed_image = $("div.block-edit-image, rootOfList").first();
         $(embed_image).find("textarea").val("");
@@ -216,7 +214,7 @@ $(document).ready(function() {
       var src_type = '';
       if(ambed_value == ""){
         $(this).prev(".span_val").show();
-        $(this).removeAttribute("disabled");
+        $(this).removeAttr("disabled");
       }
       else {
         $(this).prev(".span_val").hide();
