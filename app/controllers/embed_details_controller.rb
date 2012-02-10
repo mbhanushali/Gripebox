@@ -28,7 +28,7 @@ class EmbedDetailsController < ApplicationController
   private
   def get_provider_name(url)
     @provider_name = ''
-    @providers = ["youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare", "yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd", "movieclips","23hq","jpg","png","gif","bmp","ico","jpeg"]
+    @providers = ["youtu.be","youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare", "yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd", "movieclips","23hq","jpg","png","gif","bmp","ico","jpeg"]
     @providers.each do |provider|
       if url.include?(provider)
         @provider_name = provider
@@ -41,7 +41,7 @@ class EmbedDetailsController < ApplicationController
   def get_resource(provider, url)
     @url = url
     resource = case provider
-    when "youtube"
+    when "youtube","youtu.be"
       @changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.youtube.com/','').gsub('embed/','').gsub('watch?v=','').gsub('youtube.com/','').gsub('youtu.be/','')
       @changed_url = "http://www.youtube.com/watch?v="+ @changed_url
       OEmbed::Providers::Youtube.get(@changed_url)
