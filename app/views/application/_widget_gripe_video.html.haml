@@ -12,10 +12,12 @@
             %em>= image.file_upload.duration
           - else   
             %div.code-video
-              .media-content{ :id => "video" + image.id.to_s, :source => image.url }
-
+              - if image.embed_html.blank?
+                .media-content{ :id => "video" + image.id.to_s, :source => image.url }
+              - else
+                = raw(image.embed_html)
               //.mediaplayer{ :id => "player" + gripe.id.to_s }
-            = image_tag("/assets/ico/embed_video_tmb.png", :alt => image.overview )
+            = image_tag((image.thumbnail_url.blank?)?("/assets/ico/embed_video_tmb.png"):("#{image.thumbnail_url}"), :alt => image.overview )
         %span
           = truncate(image.overview, :length => 46, :omnission => '...')
 .clear
