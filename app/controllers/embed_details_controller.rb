@@ -11,9 +11,10 @@ class EmbedDetailsController < ApplicationController
       end      
     elsif resource.video?
     	@src = resource.html.to_s
-    	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :url => @src)
+    	@thumbnail_url = (resource.methods.include? :thumbnail_url)?(resource.thumbnail_url.to_s):('')
+    	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :url => @src, :thumbnail_url => @thumbnail_url)
       respond_to do |format|
-        format.js { render :json => {:type => resource.type.to_s , :thumbnail_url => resource.thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + resource.thumbnail_url + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
+        format.js { render :json => {:type => resource.type.to_s , :thumbnail_url => @thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + @thumbnail_url.to_s + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
       end
     elsif resource.photo?
       @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
@@ -27,7 +28,7 @@ class EmbedDetailsController < ApplicationController
   private
   def get_provider_name(url)
     @provider_name = ''
-    @providers = ["youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare","yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd","movieclips","23hq","jpg","png","gif","bmp","ico","jpeg"]
+    @providers = ["youtube","flickr","viddler","qik.com","revision3","hulu","vimeo","instagram","slideshare", "yfrog.com","majorleaguegaming","polleverywhere","my.opera","clearspring","nfb.ca","scribd", "movieclips","23hq","jpg","png","gif","bmp","ico","jpeg"]
     @providers.each do |provider|
       if url.include?(provider)
         @provider_name = provider
@@ -41,13 +42,15 @@ class EmbedDetailsController < ApplicationController
     @url = url
     resource = case provider
     when "youtube"
-      @changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.youtube.com/','').gsub('embed/','').gsub('watch?v=','')
+      @changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.youtube.com/','').gsub('embed/','').gsub('watch?v=','').gsub('youtube.com/')
       @changed_url = "http://www.youtube.com/watch?v="+@changed_url
       OEmbed::Providers::Youtube.get(@changed_url)
     when "flickr"
       OEmbed::Providers::Flickr.get(@url)
     when "viddler"
-      OEmbed::Providers::Viddler.get(@url)
+    	@changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.viddler.com/','').gsub('embed/','').gsub('v/','').gsub('/?f=1&autoplay=0&player=full&loop=false&nologo=false&hd=false','')
+    	@changed_url = "http://www.viddler.com/v/"+@changed_url
+      OEmbed::Providers::Viddler.get(@changed_url)
     when "qik.com"
       OEmbed::Providers::Qik.get(@url)
     when "revision3"
