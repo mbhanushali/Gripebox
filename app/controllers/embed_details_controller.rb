@@ -42,7 +42,7 @@ class EmbedDetailsController < ApplicationController
     @url = url
     resource = case provider
     when "youtube"
-      @changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.youtube.com/','').gsub('embed/','').gsub('watch?v=','').gsub('youtube.com/','')
+      @changed_url = @url.gsub('http','').gsub(':','').gsub('//','').gsub('www.youtube.com/','').gsub('embed/','').gsub('watch?v=','').gsub('youtube.com/','').gsub('youtu.be/','')
       @changed_url = "http://www.youtube.com/watch?v="+ @changed_url
       OEmbed::Providers::Youtube.get(@changed_url)
     when "flickr"
