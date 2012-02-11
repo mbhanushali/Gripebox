@@ -9,15 +9,15 @@ function parseIframe() {
       status = $("#file-upload-panel").attr("status");
       if(data.trim().length > 0){
         if(json.created_at){
-          $(".block-edit-image:last .bl-loading").after('<div class="bl-delete">x delete</div>');
-          $(".block-edit-image:last .bl-loading").text('');
+          $(".block-edit-image:first .bl-loading").after('<div class="bl-delete">x delete</div>');
+          $(".block-edit-image:first .bl-loading").text('');
           if(status == 'img')
           {
             $.ajax({
               type: "POST",
               url: "/uploader/image?id=" + json.id,
               success: function(data){
-                $(".block-edit-image:last .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
               },
             });
@@ -28,7 +28,7 @@ function parseIframe() {
               type: "POST",
               url: "/uploader/image?id=" + json.id,
               success: function(data){
-                $(".block-edit-image:last .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
               },
             });
@@ -37,8 +37,8 @@ function parseIframe() {
         else{      
           //var error = json.source_file_size;
           $(".gripe_master_list_error").val(data);
-          $(".block-edit-image:last").html("<div class='error'>" + $(".gripe_master_list_error").val() + "</div>");
-          $(".block-edit-image:last").append('<div class="bl-delete">x delete</div>');
+          $(".block-edit-image:first").html("<div class='error'>" + $(".gripe_master_list_error").val() + "</div>");
+          $(".block-edit-image:first").append('<div class="bl-delete">x delete</div>');
           
         }  
       $(".gripe_master .disabled").remove();
@@ -87,7 +87,8 @@ function fileUpload(status){
 function embed_gripes(){
    var embed_gripes = '<div class="block-edit-image nobg"><div class="embed-text">embed</div><div class="bl-content"><span class="span_val" style="display: none; ">Paste your link here.</span><textarea class="tips ed-embed-text" default="Paste your link here." name="embed_text"></textarea></div><span class="gray_embed"><img alt="Gray_arrows" src="/assets/gray_arrows.png"></span><div class="bl-content" style="margin-left: 22px;width:448px;"><div class="bl-loading"></div><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>';
    $(".gripe_master_list").prepend(embed_gripes);
-   var $embed_div = $("div.block-edit-image, rootOfList").last();
+   renderCheckboxAndInput();
+   var $embed_div = $("div.block-edit-image, rootOfList").first();
    if($(".gripe_master_list .block-edit-image").length > 1){
      $(".block-edit-image").removeClass("nobg");
      $(".block-edit-image:last").addClass("nobg");
@@ -122,12 +123,12 @@ function openFile(file) {
 
 };
 
-function get_embed_details(url,embed_gripe){
+function get_embed_details(url, embed_url,type,embed_gripe){
   var xhr = $.ajax({
     url: '/embed_details.js',
     type: 'POST',
     dataType: 'JSON',
-    data: {embed_url: url},
+    data: {url: url, url_type: type, embed_url: embed_url},
     success: function(data){
       file_type = data.type;
       if(file_type == 'video'){
@@ -135,6 +136,7 @@ function get_embed_details(url,embed_gripe){
         file_html = data.html;
         embed_success = true;
         $(".gripe_master_list").prepend(file_html);
+        renderCheckboxAndInput();
         $(".block-edit-image:first .bl-img img").attr("src",data.thumbnail_url).attr("original",data.id).css({"margin":"0"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
@@ -142,7 +144,7 @@ function get_embed_details(url,embed_gripe){
         var embed_image = $("div.block-edit-image, rootOfList").first();
         $(embed_image).find("textarea").val("");
         $(embed_image).find(".span_val").show();
-        $(embed_image).addClass("nobg");
+        $(".block-edit-image:last").addClass("nobg");
         $(embed_gripe).removeAttr("disabled");
         $(embed_gripe).parent().parent().remove();
       }
@@ -151,6 +153,7 @@ function get_embed_details(url,embed_gripe){
         file_html = data.html;
         embed_success = true;
         $(".gripe_master_list").prepend(file_html);
+        renderCheckboxAndInput();
         $(".block-edit-image:first .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
@@ -158,7 +161,7 @@ function get_embed_details(url,embed_gripe){
         var embed_image = $("div.block-edit-image, rootOfList").first();
         $(embed_image).find("textarea").val("");
         $(embed_image).find(".span_val").show();
-        $(embed_image).addClass("nobg");
+        $(".block-edit-image:last").addClass("nobg");
         $(embed_gripe).removeAttr("disabled");
         $(embed_gripe).parent().parent().remove();        
       }
@@ -168,6 +171,7 @@ function get_embed_details(url,embed_gripe){
       console.log("The following error occured: " + textStatus, errorThrown);
     },
     complete: function(){
+      $(embed_gripe).removeAttr("disabled");
     }
     
   });
@@ -226,7 +230,7 @@ $(document).ready(function() {
           src_value = ambed_value;
           src_type = 'url';
         }
-        var embed_details = get_embed_details(src_value,ambed_gripe);
+        var embed_details = get_embed_details(src_value,ambed_value, src_type, ambed_gripe);
 	    }, 600);
     }
   });

@@ -1,26 +1,47 @@
 require 'oembed'
 class EmbedDetailsController < ApplicationController
   def create
-    @url = params[:embed_url]
-    @provider = get_provider_name(@url)
-    resource = get_resource(@provider,@url)
-    if resource == "photo"
-      file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @url)
-      respond_to do |format|
-        format.js { render :json => {:type => "photo", :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @url +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @url, :id => file_gripe.id  }}
-      end      
-    elsif resource.video?
-    	@src = resource.html.to_s
-    	@thumbnail_url = (resource.methods.include? :thumbnail_url)?(resource.thumbnail_url.to_s):('')
-    	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :embed_html => @src, :thumbnail_url => @thumbnail_url)
-      respond_to do |format|
-        format.js { render :json => {:type => resource.type.to_s , :thumbnail_url => @thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + @thumbnail_url.to_s + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
+    @url = params[:url]
+    @embed_url = params[:embed_url]
+    @type = params[:url_type]
+    @embed_type = ''
+    if @type == "embed"
+      @image_type = %w(jpg png gif jpeg ico bmp)
+      @image_type.each{ |image_type| @embed_type = "photo" if @url.include? image_type }
+      if @embed_type == "photo"
+        file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @url, :embed_html => @embed_url)
+        respond_to do |format|
+          format.js { render :json => {:type => "photo", :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @url +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @url, :id => file_gripe.id  }}
+        end      
+      else
+      	@src = @embed_url
+      	@thumbnail_url = ''
+      	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :embed_html => @src, :thumbnail_url => @thumbnail_url)
+        respond_to do |format|
+          format.js { render :json => {:type => "video" , :thumbnail_url => @thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + @thumbnail_url.to_s + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
+        end
       end
-    elsif resource.photo?
-      @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
-      file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @src)
-      respond_to do |format|
-        format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :id => file_gripe.id  }}
+    else
+      @provider = get_provider_name(@url)
+      resource = get_resource(@provider,@url)
+      if resource == "photo"
+        file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @url)
+        respond_to do |format|
+          format.js { render :json => {:type => "photo", :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @url +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @url, :id => file_gripe.id  }}
+        end      
+      elsif resource.video?
+      	@src = resource.html.to_s
+      	@thumbnail_url = (resource.methods.include? :thumbnail_url)?(resource.thumbnail_url.to_s):('')
+      	file_gripe = FileGripe.create!(:mimetype => 'embed_video', :embed_html => @src, :thumbnail_url => @thumbnail_url)
+        respond_to do |format|
+          format.js { render :json => {:type => resource.type.to_s , :thumbnail_url => @thumbnail_url.to_s, :src => @src, :id => file_gripe.id, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="' + @thumbnail_url.to_s + '" alt="" embed="video" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>' }}
+        end
+      elsif resource.photo?
+        @src = resource.html.to_s.gsub("<img src='",'').gsub("' />",'')
+        file_gripe = FileGripe.create!(:mimetype => 'embed_image', :url => @src)
+        respond_to do |format|
+          format.js { render :json => {:type => resource.type, :html => '<div class="block-edit-image nobg"><div class="bl-img"><img src="'+ @src +'" alt="" embed="img" style="width:55px;height:55px;margin:0pt;" original="' + file_gripe.id.to_s + '"></div><div class="bl-content"><span class="span_val">Add are description.</span><textarea default="Add are description." class="tips ed-text"></textarea><div class="bl-delete">x delete</div><div class="clear"></div></div><div class="clear"></div></div>', :src => @src, :id => file_gripe.id  }}
+        end
       end
     end
   end
