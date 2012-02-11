@@ -7,6 +7,7 @@ function parseIframe() {
   var data = $("#file-upload-iframe").contents().text(),
       json = jQuery.parseJSON(data),
       status = $("#file-upload-panel").attr("status");
+      var getBytes;
       if(data.trim().length > 0){
         if(json.created_at){
           $(".block-edit-image:first .bl-loading").after('<div class="bl-delete">x delete</div>');
@@ -16,9 +17,23 @@ function parseIframe() {
             $.ajax({
               type: "POST",
               url: "/uploader/image?id=" + json.id,
+              beforeSend: function(thisXHR){
+              	getBytes = setInterval(function(){
+              			if(thisXHR.readyState > 2){
+              				  var totalBytes = thisXHR.getResponseHeader('Content-length');
+              				  console.log("Total Bytes: " + totalBytes);
+              					var dlBytes = thisXHR.responseText.length;
+              					console.log(thisXHR.responseText);
+              					console.log(thisXHR);
+              					console.log(dlBytes);
+              				}
+              		},200);
+             	},
               success: function(data){
+                clearInterval(getBytes);
                 $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
+                
               },
             });
           }
@@ -27,7 +42,20 @@ function parseIframe() {
             $.ajax({
               type: "POST",
               url: "/uploader/image?id=" + json.id,
+              beforeSend: function(thisXHR){
+              	getBytes = setInterval(function(){
+              			if(thisXHR.readyState > 2){
+              				  var totalBytes = thisXHR.getResponseHeader('Content-length');
+              				  console.log("Total Bytes: " + totalBytes);
+              					var dlBytes = thisXHR.responseText.length;
+              					console.log(thisXHR.responseText);
+              					console.log(thisXHR);
+              					console.log(dlBytes);
+              				}
+              		},200);
+             	},
               success: function(data){
+                clearInterval(getBytes);
                 $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
               },
