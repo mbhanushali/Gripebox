@@ -72,5 +72,7 @@ Gripebox::Application.configure do
     :password             => "gripe",
     :authentication       => "plain",
   }
+  
+  Paperclip.options[:command_path] = "/usr/local/bin"
 
 end

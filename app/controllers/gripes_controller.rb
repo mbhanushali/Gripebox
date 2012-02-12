@@ -294,6 +294,7 @@ class GripesController < ApplicationController
   # GET /gripes/new.json
   def new
     @gripe = Gripe.new
+    @uuid = (0..29).to_a.map {|x| rand(10)}
 
     respond_to do |format|
       format.html # new.html.erb
