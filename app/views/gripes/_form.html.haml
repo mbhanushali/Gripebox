@@ -27,7 +27,7 @@
   %textarea.gripe_master_list_error
 
 %span.gripe_buttons_container
-  = form_for :file, :url => '/uploader?X-Progress-ID=#{@uuid}', :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form|
+  = form_for :file, :url => "/uploader?X-Progress-ID=#{@uuid}", :html => { :multipart => true, :target => "file-upload-iframe", :name => "file-upload-panel", :id => "file-upload-panel"} do |form|
     = hidden_field_tag 'X-Progress-ID', @uuid 
     = form.file_field :image, :class => "file-upload-source", :status => "img"
     = form.hidden_field :user_id, :value => current_user.id
