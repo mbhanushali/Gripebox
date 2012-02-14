@@ -67,7 +67,7 @@ function fileUpload(status){
   {
     //alert("ok");
     
-    var block_upload = '<div class="block-edit-image"><div class="bl-img"><img src="/assets/loading.gif" alt=""></div><div class="bl-content"><textarea default="Add are description." class="tips ed-text"></textarea><span class="progress"></span><div class="bl-loading">loading ...</div><div class="clear"></div></div><div class="clear"></div></div>';
+    var block_upload = '<div class="block-edit-image"><div class="bl-img"><img src="/assets/loading.gif" alt=""></div><div class="bl-content"><textarea default="Add are description." class="tips ed-text"></textarea><div class="progresscontainer"><div class="progress"></div></div><div class="bl-loading">loading ...</div><div class="clear"></div></div><div class="clear"></div></div>';
    
     $(".gripe_master_list").prepend(block_upload);
     renderCheckboxAndInput();
