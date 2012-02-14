@@ -466,3 +466,5 @@ box-shadow:none;
 .list-gripes .block-edit-gripe div.disabledBtn:active {
   background-image: none;  opacity: 0.5;  filter: alpha(opacity=50); cursor:default!important;
 }
+
+.hide-me{display:none;}
