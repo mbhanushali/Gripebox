@@ -8,10 +8,8 @@ $(document).ready(function() {
     			url: '/progress',
     			type: 'GET',
     			data: "X-Progress-ID="+uuid,
-    			success: function(xhr, response){
-    				alert(xhr);
-    				alert(xhr.responseText);
-    				alert(response);
+    			success: function(xhr){
+    				alert(xhr.state);
     				var upload = jQuery.parseJSON(xhr.responseText);
     				if(upload.state == 'uploading'){
     					upload.percent = Math.floor((upload.received / upload.size) * 100);
