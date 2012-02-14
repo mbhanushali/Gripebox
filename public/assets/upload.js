@@ -12,7 +12,7 @@ $(document).ready(function() {
     				var upload = xhr;
     				if(upload.state == 'uploading'){
     					upload.percent = Math.floor((upload.received / upload.size) * 100);
-    					$("#bar").update(upload.percent + '%');
+    					$("#bar").html(upload.percent + '%');
     					if(upload.percent >= 100){
     						clearInterval(progress_interval);
     					}
