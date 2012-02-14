@@ -1,8 +1,10 @@
 $(document).ready(function() {
 	$("#file-upload-panel").live("submit", function(e){
     var block_edit_image = $(".block-edit-image:first .progress");
-    $("#progressbar").progressbar({value:0});
-    block_edit_image.progressbar({value:0});
+    block_edit_image.progressbar();
+    block_edit_image.progressbar("option","value",0);
+    $("#progressbar").progressbar();
+    $("#progressbar").progressbar("option","value",0);
     var uuid = $("#X-Progress-ID").val();
     var progress_interval = setInterval(function(){
     	if(jQuery.active == 0){
