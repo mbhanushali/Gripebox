@@ -9,7 +9,7 @@ $(document).ready(function() {
     			type: 'GET',
     			data: "X-Progress-ID="+uuid,
     			success: function(xhr){
-    				var upload = jQuery.parseJSON(xhr);
+    				var upload = xhr;
     				if(upload.state == 'uploading'){
     					upload.percent = Math.floor((upload.received / upload.size) * 100);
     					$("#bar").update(upload.percent + '%');
