@@ -9,7 +9,8 @@ function parseIframe() {
       status = $("#file-upload-panel").attr("status");
       if(data.trim().length > 0){
         if(json.created_at){
-          $(".block-edit-image:first .bl-loading").after('<div class="bl-delete">x delete</div>');
+        	if($(".block-edit-image:first .bl-delete").length == 0){
+          $(".block-edit-image:first .bl-loading").after('<div class="bl-delete">x delete</div>');}
           $(".block-edit-image:first .bl-loading").text('');
           if(status == 'img')
           {
