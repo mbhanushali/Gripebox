@@ -115,4 +115,7 @@ border-radius: 10px;}
   font-family: Arial;
 }
 .gripe_buttons_container{ position:absolute;}
-.progresscontainer{ width:209px;height:17px;}
+.progresscontainer{ width:209px;height:17px;margin-top:8px;}
+.completestatus{ color:#16b5f1; font-weight:bold;}
+.loadingstatus{ color:#808080; font-weight:bold;}
+.progressstatus{ float: left; position: absolute; margin-top: -7px; margin-left: 222px; }
