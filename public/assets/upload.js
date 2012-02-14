@@ -9,13 +9,13 @@ $(document).ready(function() {
     			type: 'GET',
     			data: "X-Progress-ID="+uuid,
     			success: function(xhr){
-    				var upload = xhr;
-    				if(upload.state == 'uploading'){
-    					upload.percent = Math.floor((upload.received / upload.size) * 100);
-    					$("#bar").html(upload.percent + '%');
-    					if(upload.percent >= 100){
-    						clearInterval(progress_interval);
-    					}
+    				if(xhr.state == 'uploading'){
+    					xhr.percent = Math.floor((xhr.received / xhr.size) * 100);
+    					$("#bar").html(xhr.percent + '%');
+    				}
+    				else if(xhr.state == 'done'){
+    					clearInterval(progress_interval);
+    					$("#bar").html('100%');
     				}
     			}
     		});
