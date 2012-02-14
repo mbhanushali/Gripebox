@@ -86,6 +86,8 @@ gem "ckeditor", "3.7.0.rc2"
 
 gem "ruby-oembed"
 
+gem 'delayed_job_active_record'
+
 gem "ts-datetime-delta", '1.0.2', :require => 'thinking_sphinx/deltas/datetime_delta'
 
 gem 'ts-delayed-delta', '1.1.2',  :require => 'thinking_sphinx/deltas/delayed_delta'
