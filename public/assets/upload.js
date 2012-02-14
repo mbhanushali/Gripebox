@@ -9,6 +9,8 @@ $(document).ready(function() {
     			type: 'GET',
     			data: "X-Progress-ID="+uuid,
     			success: function(xhr){
+    				console.log(xhr);
+    				console.log(xhr.responseText);
     				var upload = jQuery.parseJSON(xhr.responseText);
     				if(upload.state == 'uploading'){
     					upload.percent = Math.floor((upload.received / upload.size) * 100);
@@ -20,6 +22,6 @@ $(document).ready(function() {
     			}
     		});
     	}
-    },100);
+    },10);
   });
 });
