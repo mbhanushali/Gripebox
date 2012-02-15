@@ -47,5 +47,9 @@ module Gripebox
     
     # Configuration of ckeditor
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    
+    config.gem 'ts-datetime-delta', :lib => 'thinking_sphinx/deltas/datetime_delta', :version => '1.0.2'
+
+
   end
 end

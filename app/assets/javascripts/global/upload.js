@@ -6,6 +6,7 @@ $(document).ready(function() {
     var progress_status = $(".block-edit-image:first .bl-loading");
     progress_status.addClass("progressstatus");
     progress_status.addClass("loadingstatus");
+    progress_status.after('<div class="bl-delete">x delete</div>');
     var uuid = $("#X-Progress-ID").val();
     var progress_interval = setInterval(function(){
     	if(jQuery.active == 0){
