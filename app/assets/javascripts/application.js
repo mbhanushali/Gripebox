@@ -24,21 +24,24 @@ $(document).ready(function() {$(".flag").click( function() { var $gripe_box = $(
 $("#show_more_gripes").click(function() {
   $(this).bind('click', disableLink);
   var page_no = parseInt($("#show_more_page_gripe").val());
-  $(".loading").attr("display","block");
+  $(".loading").show();
   $.ajax({
     type: "GET",
     url: "/show-more/?page="+ page_no,
     success: function(data){
       if(data != 'no gripes'){
-        $(".list-gripes").append(data);
+      	$(data)
+      		.hide()
+      		.appendTo(".list-gripes")
+      		.fadeIn("slow");
         $("#show_more_page_gripe").val(page_no + 1);
       }
       else{
-        $(this).attr("display","none");
+        $(".showmore-button-container").hide();
       }
     },
     complete: function(){
-      $(".loading").attr("display","none");
+      $(".loading").hide();
       $(this).bind('click', disableLink);
     }
   });
