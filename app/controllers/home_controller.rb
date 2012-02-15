@@ -2,7 +2,7 @@ class HomeController < ApplicationController
 
   def index
     @news = News.order('created_at DESC').limit(5)
-    @gripes = Gripe.where('created_at > ?',1.week.ago).order(:power).order("comments_count DESC").order("created_at DESC")
+    @gripes = Gripe.where('created_at > ?',1.month.ago).order(:power).order("comments_count DESC").order("created_at DESC").paginate(:page => 1, :per_page => 5)
   end
 
   def count_tags

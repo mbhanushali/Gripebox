@@ -8,3 +8,9 @@
   - if gripes.present?
     - gripes.each do |gripe|
       = render :partial => "gripe", :locals => { :gripe => gripe }
+.loading
+  = image_tag "/assets/loading.gif", :alt => "Loading"
+.showmore-button-container
+  %a{:href=>"javascript:void(null)", :id=>"show_more_gripes"}
+    = image_tag "/assets/show-more.png", :alt => "Show more"
+  =hidden_field :show_more_page, :gripe, :value => "2"

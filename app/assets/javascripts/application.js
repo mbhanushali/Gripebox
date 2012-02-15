@@ -15,4 +15,31 @@ function countGripes(){
   });
 
 }
-$(document).ready(function() {$(".flag").click( function() { var $gripe_box = $(this).closest("div.box-gripe");var $parent_gripe_id = $gripe_box.attr("id");$.post("/flag-gripe",{ id: $parent_gripe_id }, function(data){$gripe_box.html(data);setTimeout(function() {$("#popup-"+$parent_gripe_id).fadeOut('fast');}, 3000);});} );});
+function disableLink(e) {
+    // cancels the event
+    e.preventDefault();
+    return false;
+}
+$(document).ready(function() {$(".flag").click( function() { var $gripe_box = $(this).closest("div.box-gripe");var $parent_gripe_id = $gripe_box.attr("id");$.post("/flag-gripe",{ id: $parent_gripe_id }, function(data){$gripe_box.html(data);setTimeout(function() {$("#popup-"+$parent_gripe_id).fadeOut('fast');}, 3000);});} );
+$("#show_more_gripes").click(function() {
+  $(this).bind('click', disableLink);
+  var page_no = parseInt($("#show_more_page_gripe").val());
+  $(".loading").attr("display","block");
+  $.ajax({
+    type: "GET",
+    url: "/show-more/?page="+ page_no,
+    success: function(data){
+      if(data != 'no gripes'){
+        $(".list-gripes").append(data);
+        $("#show_more_page_gripe").val(page_no + 1);
+      }
+      else{
+        $(this).attr("display","none");
+      }
+    },
+    complete: function(){
+      $(".loading").attr("display","none");
+      $(this).bind('click', disableLink);
+    }
+  });
+});});
