@@ -60,8 +60,8 @@ $(document).ready(function() {
   $(".box-gripe .expand").live('click', function(){
     var root = $(this).closest(".box-gripe");
     $(this).toggleClass("active");
-    root.find(".gripe-content .gripe-preview").toggleClass("dn");
     root.find(".gripe-content .gripe-preview").next().toggle("slow");
+    root.find(".gripe-content .gripe-preview").toggleClass("dn");
     root.find(".gripe-content");
     root.find(".gripe-expand");
     if ( $(this).is(".active"))
