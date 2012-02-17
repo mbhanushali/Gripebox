@@ -3,3 +3,10 @@
   - if gripes.present?
     - gripes.each do |gripe|
       = render :partial => "gripe", :locals => { :gripe => gripe }
+- if gripes.count > 15
+  .loading
+    = image_tag "/assets/loading.gif", :alt => "Loading"
+  .showmore-button-container-view-all
+    %a{:href=>"javascript:void(null)", :id=>"show_more_gripes_view_all"}
+      = image_tag "/assets/show-more.png", :alt => "Show more"
+    =hidden_field :show_more_page, :gripe, :value => "2"

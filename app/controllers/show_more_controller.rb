@@ -8,6 +8,15 @@ class ShowMoreController < ApplicationController
     end
   end
   
+  def view_all
+    @gripes = Gripe.order("created_at DESC").paginate(:page => @page, :per_page => @per_page)
+    unless @gripes.empty?
+      render :partial => "gripe", :collection => @gripes
+    else
+      render :text => "no gripes"
+    end
+  end
+  
   def check_gripes
     if (@gripes.length + ((@page.to_i - 1)*@per_page.to_i)) < @gripes.count
       render :text => ''

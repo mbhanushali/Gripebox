@@ -5,7 +5,7 @@ class GripesController < ApplicationController
   # GET /gripes
   # GET /gripes.json
   def index
-    @gripes = Gripe.order('created_at DESC').all
+    @gripes = Gripe.order("created_at DESC").paginate(:page => 1, :per_page => 15)
 
     @title = "Gripebox.com | Gripes"
 
