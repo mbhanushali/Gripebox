@@ -61,7 +61,7 @@ $(document).ready(function() {
     var root = $(this).closest(".box-gripe");
     $(this).toggleClass("active");
     root.find(".gripe-content .gripe-preview").toggleClass("dn");
-    root.find(".gripe-content .gripe-preview").next().slideToggle(400, function(){
+    root.find(".gripe-content .gripe-preview").next().slideToggle(350, function(){
       root.find(".gripe-content").toggleClass("db");
       root.find(".gripe-expand").toggleClass("no");      
     });
