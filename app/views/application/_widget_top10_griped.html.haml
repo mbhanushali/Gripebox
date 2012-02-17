@@ -6,8 +6,8 @@
       .top-year{ :rel => "top-year"} year
       .clear
     .topic
-      %h3 Top 10 Griped
-      %strong companies                   
+      %h3
+        = image_tag("/assets/trending.png", :alt=>"Trending...")
     %ul.list-top10-griped{ :rel => "top-week", :style => "display:block"}
       - key = 0
       - Buzz.where('period = ? AND published = ?','week',true).order('count DESC').limit(10).each do |tag|
