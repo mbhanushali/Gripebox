@@ -16,6 +16,8 @@ Gripebox::Application.routes.draw do
   
   match 'show-more' => 'show_more#index'
 
+  match 'check-gripes' => 'show_more#check_gripes'
+
   match 'gripe_view' => 'home#gripe_view'
 
   match 'check_read' => 'notifications#check_read'
