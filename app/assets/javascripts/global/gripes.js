@@ -62,7 +62,7 @@ $(document).ready(function() {
     $(this).toggleClass("active");
     root.find(".gripe-content .gripe-preview").toggleClass("dn").next().toggleClass("db").toggle("slow");
     root.find(".gripe-content");
-    root.find(".gripe-expand").toggle("slow");
+    root.find(".gripe-expand");
     if ( $(this).is(".active"))
       $(this).html("<em>◄ </em> less");
     else  
