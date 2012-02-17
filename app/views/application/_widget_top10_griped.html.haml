@@ -7,7 +7,7 @@
       .clear
     .topic
       %h3
-        = image_tag("/assets/trending.png", :alt=>"Trending...")
+        = image_tag("/assets/Trending.png", :alt=>"Trending...")
     %ul.list-top10-griped{ :rel => "top-week", :style => "display:block"}
       - key = 0
       - Buzz.where('period = ? AND published = ?','week',true).order('count DESC').limit(10).each do |tag|
