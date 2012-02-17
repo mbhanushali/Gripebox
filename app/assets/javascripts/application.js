@@ -43,6 +43,8 @@ $("#show_more_gripes_view_all").click(function() {
           		.appendTo(".list-gripes")
           		.fadeIn("slow");
             $("#show_more_page_gripe").val(page_no + 1);
+            $(".loading").hide();
+            $(this).bind('click', disableLink);
           }
         });
       }
@@ -50,7 +52,7 @@ $("#show_more_gripes_view_all").click(function() {
         $(".showmore-button-container-view-all").hide();
       }
     },
-    complete: function(){
+    error: function(){
       $(".loading").hide();
       $(this).bind('click', disableLink);
     }
@@ -78,6 +80,8 @@ $("#show_more_gripes").click(function() {
           		.appendTo(".list-gripes")
           		.fadeIn("slow");
             $("#show_more_page_gripe").val(page_no + 1);
+            $(".loading").hide();
+            $(this).bind('click', disableLink);
           }
         });
       }
@@ -85,7 +89,7 @@ $("#show_more_gripes").click(function() {
         $(".showmore-button-container").hide();
       }
     },
-    complete: function(){
+    error: function(){
       $(".loading").hide();
       $(this).bind('click', disableLink);
     }
