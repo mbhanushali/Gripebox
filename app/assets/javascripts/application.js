@@ -27,14 +27,24 @@ $("#show_more_gripes").click(function() {
   $(".loading").show();
   $.ajax({
     type: "GET",
-    url: "/show-more/?page="+ page_no,
+    url: "/show-more/?page="+ page_no + "&per_page=" + 10,
     success: function(data){
       if(data != 'no gripes'){
-      	$(data)
-      		.hide()
-      		.appendTo(".list-gripes")
-      		.fadeIn("slow");
-        $("#show_more_page_gripe").val(page_no + 1);
+        var html = data;
+        $.ajax({
+          type: "GET",
+          url: "/check-gripes/?page="+ page_no + "&per_page=" + 10,
+          success: function(data){
+            if(data == 'hide'){$(".showmore-button-container").hide();}
+          },
+          complete: function(){
+            $(html)
+          		.hide()
+          		.appendTo(".list-gripes")
+          		.fadeIn("slow");
+            $("#show_more_page_gripe").val(page_no + 1);
+          }
+        });
       }
       else{
         $(".showmore-button-container").hide();
