@@ -68,8 +68,8 @@ border-radius: 5px;}
 }
 .list-gripes .box-content   {position:relative; padding:5px 0 26px 0; }
 .list-gripes .box-content .gripe-preview-all {display:none;}
-.list-gripes .box-content p {color:#797979; font-size:16px; padding:2px 0 0 0; line-height:20px; }
-.list-gripes .box-content .gripe-preview {color:#797979; font-size:16px; padding:2px 0 0 0; line-height:20px;overflow:hidden;}
+.list-gripes .box-content p {color:#797979; font-size:16px; padding:2px 0 0 0; line-height:24px; }
+.list-gripes .box-content .gripe-preview {color:#797979; font-size:16px; padding:2px 0 0 0; line-height:24px;overflow:hidden;}
 
 .list-gripes .box-content .dn {display:none;}
 .list-gripes .box-content .db {display:block;}
