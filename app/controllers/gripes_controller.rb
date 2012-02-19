@@ -21,7 +21,6 @@ class GripesController < ApplicationController
   end
 
   def embed_save
-
     @gripe = Gripe.find(params['idE'])
 
     params['ResultArrayE'].split(':::').each do |media|
@@ -141,7 +140,6 @@ class GripesController < ApplicationController
   end
 
   def filter
-
     @gripes = Gripe
 
     if params[:search] != ""

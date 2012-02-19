@@ -6,7 +6,6 @@ class HomeController < ApplicationController
   end
 
   def count_tags
-
     Gripe.where('created_at > ?',1.week.ago).tag_counts_on(:tags).each do |tag|
       buzz = Buzz.where('tag = ? AND period = ?',tag.name, 'week').last
       if buzz.present?
