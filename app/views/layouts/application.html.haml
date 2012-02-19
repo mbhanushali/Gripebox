@@ -14,9 +14,9 @@
     #wrapper
       = render :partial => "application/header"
       = render :partial => "application/alerts"  
-      #container
+      #container{:style => "background-color:#{background_color}"}
         - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
-        .main{ :style => footer_image.present? ? "padding-bottom: 200px; background: url(#{footer_image.image(:original)}) no-repeat center bottom;" : nil }
+        .main{ :style => footer_image.present? ? "padding-bottom: 200px; background: url(#{footer_image.image(:original)}) no-repeat center bottom;background-color:white;" : "background-color:white;" }
           #left
             = render :partial => "left_column"
           #center

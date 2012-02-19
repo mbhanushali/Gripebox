@@ -14,7 +14,7 @@
     #wrapper
       = render :partial => "application/header"
       = render :partial => "application/alerts"
-      #cms_container
+      #cms_container{:style => "background-color:#{background_color}"}
         - footer_image = FooterImage.where(:display_on => true).order(:created_at).last
         .cms_main{ :style => footer_image.present? ? "padding-bottom: 250px; background: url(#{footer_image.image(:original)}) no-repeat center bottom;background-color:white;" : "background-color:white;" }
           #cms_left
@@ -29,3 +29,8 @@
     = render :partial => "application/footer"
     = render :partial => "application/popup"
     %script{:type => "text/javascript", :src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ea19fa823bbfeaf"}
+  = script_one
+  = script_two
+  = script_three
+  = script_four
+  = script_five
