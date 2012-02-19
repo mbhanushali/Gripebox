@@ -2,7 +2,9 @@
 %html
   %head
     %title 
-      = @title
+      = page_title
+    == <meta name="description" content="#{page_meta_description}" />
+    == <meta name="keywords" content="#{page_meta_keywords}" />
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags

@@ -46,4 +46,17 @@ module ApplicationHelper
 			false	
 		end	
 	end
+	
+	def page_title
+		(@meta_title.nil?)?(DefaultSetting.last.page_title):(@meta_title)
+	end
+
+	def page_meta_description
+		(@meta_description.nil?)?(DefaultSetting.last.meta_description):(@meta_description)
+	end
+
+	def page_meta_keywords
+		(@meta_keywords.nil?)?(DefaultSetting.last.meta_keywords):(@meta_keywords)
+	end
+
 end
