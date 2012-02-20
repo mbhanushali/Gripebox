@@ -18,6 +18,7 @@ Gripebox::Application.routes.draw do
   match 'show-more-view-all' => 'show_more#view_all'
 
   match 'check-gripes' => 'show_more#check_gripes'
+  match 'check-gripes-view-all' => 'show_more#check_gripes_view_all'
 
   match 'gripe_view' => 'home#gripe_view'
 

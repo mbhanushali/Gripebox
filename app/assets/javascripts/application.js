@@ -32,10 +32,13 @@ $("#show_more_gripes_view_all").click(function() {
       if(data != 'no gripes'){
         var html = data;
         $.ajax({
-          type: "GET",
-          url: "/check-gripes/?page="+ page_no + "&per_page=" + 15,
+          type: "POST",
+          dataType: 'JSON',
+          data: {page: page_no, per_page: 10},
+          url: "/check-gripes-view-all.js",
           success: function(data){
-            if(data == 'hide'){$(".showmore-button-container-view-all").hide();}
+          	$(".result-griper-header").html(data.total_gripes + " results<span></span>");
+            if(data.text == 'hide'){$(".showmore-button-container-view-all").hide();}
           },
           complete: function(){
             $(html)
@@ -69,10 +72,13 @@ $("#show_more_gripes").click(function() {
       if(data != 'no gripes'){
         var html = data;
         $.ajax({
-          type: "GET",
-          url: "/check-gripes/?page="+ page_no + "&per_page=" + 10,
+          type: "POST",
+          dataType: 'JSON',
+          data: {page: page_no, per_page: 10},
+          url: "/check-gripes.js",
           success: function(data){
-            if(data == 'hide'){$(".showmore-button-container").hide();}
+          	$(".result-griper-header").html(data.total_gripes + " results<span></span>");
+            if(data.text == 'hide'){$(".showmore-button-container").hide();}
           },
           complete: function(){
             $(html)
