@@ -33,10 +33,15 @@ end
 
 task :send_facebook_new => :environment do
   user = User.find(ENV["USER_ID"])
+  puts "user id: #{user.id}"
   if user.authentications.facebook.create_a_gripe
+  	puts "user create a gripe with facebook"
     if user.authentication.facebook.present?
+    	puts "user facebook present"
       @graph = Koala::Facebook::API.new(user.authentication.facebook.token)
+      puts "got the graph"
       @graph.put_object("me", "feed", :message => "Just griped about \"#{ENV['GRIPE_TITLE']}\" www.gripebox.com \"#{ENV['GRIPE_TEXT']}\"")
+      puts "got the graph output"
     end
   end  
 end  
