@@ -44,8 +44,8 @@ class Gripe < ActiveRecord::Base
   		tags << tag.id.to_s
   		tag_names << '"' + tag.name.to_s + '"'
   	end
-  	self.connection.execute("delete from tags where id in("+tags.join(',')+")")
-  	self.connection.execute("delete from buzzs where tag in("+tag_names.join(',')+")")
+  	self.connection.execute("delete from tags where id in("+tags.join(',').gsub('"', '\"')+")")
+  	self.connection.execute("delete from buzzs where tag in("+tag_names.join(',').gsub('"', '\"')+")")
   	count_buzz
   end
   
