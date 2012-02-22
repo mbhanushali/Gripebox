@@ -42,10 +42,10 @@ class Gripe < ActiveRecord::Base
   	all_tags = self.class.find_by_sql("select * from tags WHERE id not in(select distinct(tag_id) as tag_id from taggings)")
   	all_tags.each do |tag|
   		tags << tag.id.to_s
-  		tag_names << '"' + tag.name.to_s + '"'
+  		tag_names << '"' + tag.name.to_s.gsub('"', '\"') + '"'
   	end
-  	self.connection.execute("delete from tags where id in("+tags.gsub('"', '\"').join(',')+")")
-  	self.connection.execute("delete from buzzs where tag in("+tag_names.gsub('"', '\"').join(',')+")")
+  	self.connection.execute("delete from tags where id in("+tags.join(',')+")")
+  	self.connection.execute("delete from buzzs where tag in("+tag_names.join(',')+")")
   	count_buzz
   end
   
