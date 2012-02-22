@@ -140,7 +140,7 @@
               %label{ :for => "fb-amp-up" }  Amp up another users
           - else
             #panel-for-facebook-posting
-              = link_to('Please allow Gripebox to broadcast my activities to Facebook','https://www.facebook.com/dialog/oauth?client_id=292822210738107&redirect_uri=http://dev.gripebox.com/account&scope=email,read_stream,publish_stream,offline_access')
+              = link_to('Please allow Gripebox to broadcast my activities to Facebook','https://www.facebook.com/dialog/oauth?client_id=292822210738107&redirect_uri=http://gripebox.com/account&scope=email,read_stream,publish_stream,offline_access')
               - if params['code']
                 %input{ :type => "hidden", :value => params['code'], :id => "user_code" }
                 %script{ :type => "text/javascript", :src => "/assets/facebook.js" }
