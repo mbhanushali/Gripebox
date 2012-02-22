@@ -9,7 +9,7 @@ $(document).ready(function(){
       data: {
         'client_secret': '9822dc415bf97f509ba41c689628a906',
         'redirect_uri': 'http://gripebox.com/account',
-        'client_id': '292822210738107',
+        'client_id': '259665494110245',
         'code': code
       },
       success: function(data){
