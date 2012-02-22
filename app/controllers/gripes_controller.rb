@@ -333,8 +333,13 @@ class GripesController < ApplicationController
             end
           end  
         end
+        
+        logger.debug "send facebook new"
 
         call_rake(:send_facebook_new, :user_id => current_user.id, :gripe_title => params[:gripe][:title], :gripe_text => params[:gripe][:overview][0..17] + "...")
+        
+        logger.debug "send twitter new"
+        
         call_rake(:send_twitter_new, :user_id => current_user.id, :gripe_title => params[:gripe][:title], :gripe_text => params[:gripe][:overview][0..17] + "...")
 
         format.html { redirect_to mygripes_path }
