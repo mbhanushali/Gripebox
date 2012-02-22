@@ -334,11 +334,15 @@ class GripesController < ApplicationController
           end  
         end
         
-        logger.debug "send facebook new"
+        logger.debug "send facebook new debug"
+        logger.info "send facebook new info"
+        logger.warn "send facebook new warn"
 
         call_rake(:send_facebook_new, :user_id => current_user.id, :gripe_title => params[:gripe][:title], :gripe_text => params[:gripe][:overview][0..17] + "...")
         
-        logger.debug "send twitter new"
+        logger.debug "send twitter new debug"
+        logger.info "send twitter new info"
+        logger.warn "send twitter new warn"
         
         call_rake(:send_twitter_new, :user_id => current_user.id, :gripe_title => params[:gripe][:title], :gripe_text => params[:gripe][:overview][0..17] + "...")
 
