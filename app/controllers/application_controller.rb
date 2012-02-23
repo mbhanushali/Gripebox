@@ -5,7 +5,8 @@ class ApplicationController < ActionController::Base
 
   layout :choose_layout
   before_filter :check_notification
-
+  before_filter :log_additional_data
+  
   #http_basic_authenticate_with :name => "dev", :password => "dev"
 
   unless config.consider_all_requests_local
@@ -76,4 +77,11 @@ class ApplicationController < ActionController::Base
       render :template => 'error_pages/index', :layout => false, :status => :not_found
     end
 
+  protected
+    def log_additional_data
+      request.env["exception_notifier.exception_data"] = {
+        :document => @document,
+        :person => @person
+      }
+    end
 end
