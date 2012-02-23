@@ -3,7 +3,7 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 run Gripebox::Application
 
-Whatever::Application.config.middleware.use ExceptionNotifier,
+Gripebox::Application.config.middleware.use ExceptionNotifier,
  :email_prefix => "[Gripebox Exception] ",
  :sender_address => %{"notifier" <support@gripebox.com>},
  :exception_recipients => %w{mayur.rails@gmail.com},
