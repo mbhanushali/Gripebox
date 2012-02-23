@@ -18,10 +18,10 @@ class AuthenticationsController < ApplicationController
         :provider => omniauth['provider'], 
         :uid => omniauth['uid'], 
         :name => omniauth['user_info']['name'],
-        :token => omniauth["credentials"]["token"], 
+        :token => omniauth["credentials"]["token"],
         :secret => omniauth["credentials"]["secret"],
-        :create_a_gripe => true,
-        :amp_up => true        
+        :create_a_gripe => 1,
+        :amp_up => 1
       )
       
       flash[:notice] = "Authentication successful."
