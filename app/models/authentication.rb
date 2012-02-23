@@ -1,5 +1,5 @@
 class Authentication < ActiveRecord::Base
-  attr_accessible :user, :provider, :uid, :name, :token, :secret
+  attr_accessible :user, :provider, :uid, :name, :token, :secret, :create_a_gripe, :amp_up
   belongs_to :user
 
   def self.twitter
