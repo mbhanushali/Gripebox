@@ -33,6 +33,9 @@ end
 
 task :send_facebook_new => :environment do
   user = User.find(ENV["USER_ID"])
+  logger.warn("initiation #{user.id} warn")
+  logger.info("initiation #{user.id} info")
+  logger.debug("initiation #{user.id} debug")
   if user.authentications.facebook.create_a_gripe
   	logger.warn("creating a facebook")
     if user.authentication.facebook.present?
