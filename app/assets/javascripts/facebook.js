@@ -32,7 +32,8 @@ function setFacebookActivityAccessToken(access_token){
       'access_token': access_token,
     },
     success: function(data){
-      $("#panel-for-facebook-posting").hide();
+    	$(".facebook_status").html(data);
+//      $("#panel-for-facebook-posting").hide();
     },
   });
 

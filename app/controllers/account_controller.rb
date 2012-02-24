@@ -44,10 +44,11 @@ class AccountController < ApplicationController
 
   def facebook
     if params['access_token']
+    	@graph = Koala::Facebook::API.new(current_user.authentication.facebook.token)
       @facebook = FacebookActivity.new
       @facebook.user_id = current_user.id
       @facebook.access_token = params['access_token']
-      render :text => "success" if @facebook.save
+      render :partial => "account/facebook_account_status", :object => @graph if @facebook.save
 
     end  
   end

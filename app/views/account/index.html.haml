@@ -117,33 +117,8 @@
       .topic.fb facebook
     - if current_user.authentications.facebook.present?
       %form{ :class => "facebook-form" }
-        %div
-          %strong
-          - if current_user.facebook_activity.present?
-            - if current_user.authentications.facebook.name.present?
-              Facebook (
-              %a{:href => @graph.get_object("me")["link"] }>= current_user.authentications.facebook.name
-              )
-            - else            
-              Facebook (
-              %a{:href => @graph.get_object("me")["link"] }>= current_user.username
-              )
-          - if current_user.facebook_activity.present?
-            %span
-              Publish a story to my news feed when I:  
-          - if current_user.facebook_activity.present?  
-            %p
-              %input{ :type => "checkbox", :value => "create_a_gripe", :name => "facebook", :id => "fb-create-a-gripe", :class => "checkbox", :checked => "checked" ? current_user.authentications.facebook.create_a_gripe : false} 
-              %label{ :for => "fb-create-a-gripe" } Create a Gripe
-            %p
-              %input{ :type => "checkbox", :value => "amp_up", :name => "facebook", :id => "fb-amp-up", :class => "checkbox", :checked => "checked" ? current_user.authentications.facebook.amp_up : false } 
-              %label{ :for => "fb-amp-up" }  Amp up another users
-          - else
-            #panel-for-facebook-posting
-              = link_to('Please allow Gripebox to broadcast my activities to Facebook','https://www.facebook.com/dialog/oauth?client_id=259665494110245&redirect_uri=http://gripebox.com/account&scope=email,read_stream,publish_stream,offline_access')
-              - if params['code']
-                %input{ :type => "hidden", :value => params['code'], :id => "user_code" }
-                %script{ :type => "text/javascript", :src => "/assets/facebook.js" }
+        %div.facebook_status
+          = render :partial => "account/facebook_account_status", :object => @gripe
       %br/      
       = link_to "Disconnect the account", "/authentications/" + current_user.authentication.facebook.id.to_s, :method => :delete          
     - else
