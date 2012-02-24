@@ -7,7 +7,7 @@ $(document).ready(function(){
       type: "POST",
       url: "https://graph.facebook.com/oauth/access_token",
       data: {
-        'client_secret': '9822dc415bf97f509ba41c689628a906',
+        'client_secret': '8c55ada2517263f7d88f0f53a4aa6744',
         'redirect_uri': 'http://gripebox.com/account',
         'client_id': '259665494110245',
         'code': code
