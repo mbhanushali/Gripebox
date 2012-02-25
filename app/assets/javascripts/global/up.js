@@ -18,7 +18,7 @@ function parseIframe() {
               type: "POST",
               url: "/uploader/image?id=" + json.id,
               success: function(data){
-                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin-top":"0", "height":"55px","width":"auto"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
                 
               }
@@ -29,7 +29,7 @@ function parseIframe() {
               type: "POST",
               url: "/uploader/image?id=" + json.id,
               success: function(data){
-                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0"});
+                $(".block-edit-image:first .bl-img img").attr("src",data).attr("original",json.id).css({"margin":"0", "height":"55px","width":"auto"});
                 $("#new_gripe .btn-gripe").removeClass("submitNo");
               }
             });
@@ -138,7 +138,7 @@ function get_embed_details(url, embed_url,type,embed_gripe){
         embed_success = true;
         $(".gripe_master_list").prepend(file_html);
         renderCheckboxAndInput();
-        $(".block-edit-image:first .bl-img img").attr("src",data.thumbnail_url).attr("original",data.id).css({"margin":"0"});
+        $(".block-edit-image:first .bl-img img").attr("src",data.thumbnail_url).attr("original",data.id).css({"margin":"0", "height":"55px","width":"auto"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
         $("#new_gripe .btn-gripe").removeClass("submitNo");
@@ -155,7 +155,7 @@ function get_embed_details(url, embed_url,type,embed_gripe){
         embed_success = true;
         $(".gripe_master_list").prepend(file_html);
         renderCheckboxAndInput();
-        $(".block-edit-image:first .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0"});
+        $(".block-edit-image:first .bl-img img").attr("src",data.src).attr("original",data.id).css({"margin":"0", "height":"55px","width":"auto"});
         $("div.block-edit-image").each(function(){ 
           $(this).removeClass("nobg"); });
         $("#new_gripe .btn-gripe").removeClass("submitNo");
