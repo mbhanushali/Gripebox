@@ -3,7 +3,7 @@ class FileUpload < ActiveRecord::Base
   has_many :file_gripe, :dependent => :destroy
   
   has_attached_file :source
-  has_attached_file :image, :styles => { :medium => ["400x420#"], :thumb => ["55x55#"] }
+  has_attached_file :image, :styles => { :medium => ["400x420#"], :thumb => Proc.new{ |instance| instance.thumb_resize } }
    
   validates_attachment_size :source, :less_than => 240.megabytes
 
@@ -58,5 +58,24 @@ class FileUpload < ActiveRecord::Base
     end  
   end
 
+  def thumb_resize     
+     geo = Paperclip::Geometry.from_file(image.to_file(:original))
 
+     ratio = geo.width/geo.height  
+
+     min_width  = 55
+     min_height = 55
+
+     if ratio > 1
+       # Vertical Image
+       final_width  = min_width
+       final_height = (final_width * geo.height)/geo.width
+       "#{final_width.round}x#{final_height.round}!"
+     else
+       # Horizontal Image
+       final_height  = min_height
+       final_width = (final_height * geo.width)/geo.height
+       "#{final_width.round}x#{final_height.round}!"
+     end
+  end
 end

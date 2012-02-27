@@ -26,7 +26,7 @@ class UploaderController < ApplicationController
       raise ActionController::RoutingError.new('Not Found') unless embed_res
     else
       raise ActionController::RoutingError.new('Not Found')
-    end  
+    end
   end
 
 end
