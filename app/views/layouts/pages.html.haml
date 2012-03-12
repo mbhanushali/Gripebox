@@ -10,6 +10,11 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     == <link rel="shortcut icon" href="/favicon.ico" />
+    = script_one
+    = script_two
+    = script_three
+    = script_four
+    = script_five
   %body
     #wrapper
       = render :partial => "application/header"
@@ -29,8 +34,3 @@
     = render :partial => "application/footer"
     = render :partial => "application/popup"
     %script{:type => "text/javascript", :src => "http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4ea19fa823bbfeaf"}
-  = script_one
-  = script_two
-  = script_three
-  = script_four
-  = script_five
